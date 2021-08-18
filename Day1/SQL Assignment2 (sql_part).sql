@@ -125,60 +125,66 @@ FROM  Orders AS s INNER JOIN
 WHERE (s.ShippedDate > '1998/1/1')
 
 --20.
-select c.ContactName, max(s.ShippedDate)MostRecentOrderDate
-from Northwind.dbo.Customers c join Northwind.dbo.Orders s on c.CustomerID=s.CustomerID
-group by c.ContactName
+SELECT c.ContactName, MAX(s.ShippedDate) AS MostRecentOrderDate
+FROM  Customers AS c INNER JOIN
+         Orders AS s ON c.CustomerID = s.CustomerID
+GROUP BY c.ContactName
 
 --21.
-select c.ContactName, sum(o.Quantity)ProductBought
-from Northwind.dbo.Customers c join Northwind.dbo.orders s on c.CustomerID=s.CustomerID
-join Northwind.dbo.[Order Details] o on s.OrderID=o.OrderID
-group by c.ContactName
+SELECT c.ContactName, SUM(o.Quantity) AS ProductBought
+FROM  Customers AS c INNER JOIN
+         Orders AS s ON c.CustomerID = s.CustomerID INNER JOIN
+         [Order Details] AS o ON s.OrderID = o.OrderID
+GROUP BY c.ContactName
 
 --22.
-select c.CustomerID
-from Northwind.dbo.Customers c join Northwind.dbo.orders s on c.CustomerID=s.CustomerID
-join Northwind.dbo.[Order Details] o on s.OrderID=o.OrderID
-group by c.CustomerID
-having sum(o.Quantity)>100
+SELECT c.CustomerID
+FROM  Customers AS c INNER JOIN
+         Orders AS s ON c.CustomerID = s.CustomerID INNER JOIN
+         [Order Details] AS o ON s.OrderID = o.OrderID
+GROUP BY c.CustomerID
+HAVING (SUM(o.Quantity) > 100)
 
 
 --23.
-select distinct supp.CompanyName 'Supplier Company Name', ship.CompanyName 'Shipping Company Name'
-from Northwind.dbo.Suppliers supp join Northwind.dbo.Products p on supp.SupplierID=p.SupplierID
-join Northwind.dbo.[Order Details] o on p.ProductID=o.ProductID
-join Northwind.dbo.Orders s on o.OrderID=s.OrderID
-join Northwind.dbo.Shippers ship on s.ShipVia=ship.ShipperID
-group by supp.CompanyName,ship.CompanyName
+SELECT DISTINCT supp.CompanyName AS 'Supplier Company Name', ship.CompanyName AS 'Shipping Company Name'
+FROM  Suppliers AS supp INNER JOIN
+         Products AS p ON supp.SupplierID = p.SupplierID INNER JOIN
+         [Order Details] AS o ON p.ProductID = o.ProductID INNER JOIN
+         Orders AS s ON o.OrderID = s.OrderID INNER JOIN
+         Shippers AS ship ON s.ShipVia = ship.ShipperID
+GROUP BY supp.CompanyName, ship.CompanyName
 
 --24.
-select distinct s.OrderDate, p.ProductName
-from Northwind.dbo.Products p join Northwind.dbo.[Order Details] o on p.ProductID=o.ProductID
-join Northwind.dbo.Orders s on o.OrderID=s.OrderID
+SELECT DISTINCT s.OrderDate, p.ProductName
+FROM  Products AS p INNER JOIN
+         [Order Details] AS o ON p.ProductID = o.ProductID INNER JOIN
+         Orders AS s ON o.OrderID = s.OrderID
 
 --25.
-select e1.EmployeeID EID1, e2.EmployeeID EID2
-from Northwind.dbo.Employees e1 join Northwind.dbo.Employees e2 on e1.EmployeeID < e2.EmployeeID
-where e1.Title=e2.Title
+SELECT e1.EmployeeID AS EID1, e2.EmployeeID AS EID2
+FROM  Employees AS e1 INNER JOIN
+         Employees AS e2 ON e1.EmployeeID < e2.EmployeeID AND e1.Title = e2.Title
 
 --26.
-select ReportsTo as ManagerId
-from Northwind.dbo.Employees
-where ReportsTo is not null
-group by ReportsTo
-having COUNT(ReportsTo)>2
+SELECT ReportsTo AS ManagerId
+FROM  Employees
+WHERE (ReportsTo IS NOT NULL)
+GROUP BY ReportsTo
+HAVING (COUNT(ReportsTo) > 2)
 
 --27.
-select distinct City, ContactName, iif(1<2,'Supplier','Customer')Type
+select distinct City, ContactName, iif(1<2,'Supplier','Customer')'(Customer or Supplier)'
 from Northwind.dbo.Suppliers
 union
-select distinct City, ContactName, iif(1>2,'Supplier','Customer')Type
+select distinct City, ContactName, iif(1>2,'Supplier','Customer')'(Customer or Supplier)'
 from Northwind.dbo.Customers
 order by 1,2
 
 --28.
-select T1.F1, T2.F2
-from T1 join T2 on T1.F1=T2.F2
+SELECT T1.F1, T2.F2
+FROM  T1 INNER JOIN
+         T2 ON T1.F1 = T2.F2
 
 --result output: 
 --T1.F1		T2.F2
@@ -186,8 +192,9 @@ from T1 join T2 on T1.F1=T2.F2
 --  3		  3
 
 --29.
-select T1.F1, T2.F2
-from T1 left join T2 on T1.F1=T2.F2
+SELECT T1.F1, T2.F2
+FROM  T1 LEFT OUTER JOIN
+         T2 ON T1.F1 = T2.F2
 
 --result output: 
 --T1.F1		T2.F2
@@ -195,8 +202,9 @@ from T1 left join T2 on T1.F1=T2.F2
 --  2		  2
 --  3		  3
 
-select T1.F1, T2.F2
-from T2 left join T1 on T1.F1=T2.F2
+SELECT T1.F1, T2.F2
+FROM  T2 LEFT OUTER JOIN
+         T1 ON T1.F1 = T2.F2
 
 --result output: 
 --T1.F1		T2.F2
