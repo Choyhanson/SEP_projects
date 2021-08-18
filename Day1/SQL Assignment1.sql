@@ -54,7 +54,7 @@ ORDER BY Name, ListPrice
 --12.
 SELECT Name, ListPrice
 FROM  Production.Product
-WHERE (Name LIKE '[a,s]%')
+WHERE (Name LIKE '[as]%')
 ORDER BY Name
 
 --13.
