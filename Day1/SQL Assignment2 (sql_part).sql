@@ -84,12 +84,12 @@ go
 --14.
 declare @today int
 select @today = year(getdate())
-print @today
+
 SELECT p.ProductName
 FROM  Products AS p INNER JOIN
          [Order Details] AS o ON p.ProductID = o.ProductID INNER JOIN
          Orders AS d ON o.OrderID = d.OrderID
-WHERE (o.Quantity > 0) AND (YEAR(d.OrderDate) >= @today - 25)
+WHERE (o.Quantity > 0) AND (YEAR(d.OrderDate) > @today - 25)
 
 --15.
 SELECT TOP (5) s.ShipPostalCode, SUM(o.Quantity) AS NumSold
@@ -103,7 +103,7 @@ ORDER BY NumSold DESC
 SELECT TOP (5) s.ShipPostalCode, SUM(o.Quantity) AS NumSold
 FROM  [Order Details] AS o INNER JOIN
          Orders AS s ON o.OrderID = s.OrderID
-WHERE (s.ShipPostalCode IS NOT NULL) AND (YEAR(s.OrderDate) >= @today - 25)
+WHERE (s.ShipPostalCode IS NOT NULL) AND (YEAR(s.OrderDate) > @today - 25)
 GROUP BY s.ShipPostalCode
 ORDER BY NumSold DESC
 
