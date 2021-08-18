@@ -149,12 +149,8 @@ HAVING (SUM(o.Quantity) > 100)
 
 --23.
 SELECT DISTINCT supp.CompanyName AS 'Supplier Company Name', ship.CompanyName AS 'Shipping Company Name'
-FROM  Suppliers AS supp INNER JOIN
-         Products AS p ON supp.SupplierID = p.SupplierID INNER JOIN
-         [Order Details] AS o ON p.ProductID = o.ProductID INNER JOIN
-         Orders AS s ON o.OrderID = s.OrderID INNER JOIN
-         Shippers AS ship ON s.ShipVia = ship.ShipperID
-GROUP BY supp.CompanyName, ship.CompanyName
+FROM  Suppliers AS supp CROSS JOIN
+         Shippers AS ship
 
 --24.
 SELECT DISTINCT s.OrderDate, p.ProductName
