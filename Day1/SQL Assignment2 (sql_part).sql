@@ -1,5 +1,6 @@
 use AdventureWorks2019
 go
+
 --1. How many products can you find in the Production.Product table?
 SELECT COUNT(DISTINCT ProductID) AS TotalProductNum
 FROM  Production.Product
