@@ -38,15 +38,18 @@ create table ProjectDetails (foreign key(ProjectId) references Projects(Id),
 create table Lenders (Id int not null primary key,
                      Name varchar(50) not null,
                      AvaiableAmount decimal(15,2))
+                     
 create table Borrowers (id int not null primary key,
                        Name varchar(50) not null,
                        RiskVal int)
+                       
 create table Loans (LoanId int not null primary key,
                     foreign key (BorrowerId) references Borrowers(id),
                    Amount decimal(15,2),
                    Deadline datetime,
                    InterestRate decimal(5,2),
                    LoanDescription varchar(100))
+                   
 create table LoansDetails (foreign key (LoanId) references Loan(LoanId),
                           foreign key (LenderId) references Lenders(Id),
                           Amount decimal(15,2))
