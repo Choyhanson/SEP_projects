@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Hanson-Aero\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Hanson-Aero\\.nuget\\packages"
+    ]
+  }
+}
