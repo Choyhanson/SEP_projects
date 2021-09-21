@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3dGyOJ4TVs98xF6zP7TIM446dsgS0WW+OgAb//dzZTU2myxle0aUUDI/cJYzxREa3YTEuPtXFGKLP3J6Dktv9Q==",
+  "dgSpecHash": "LjPIpXjuTcC5FUAuf37PQHnXNO82SVzwmK6X1oewAS4EKwwaminKWeou20vGFK6iGEpafBfrA+I0TZ4a14/WNQ==",
   "success": true,
-  "projectFilePath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
+  "projectFilePath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

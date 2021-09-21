@@ -4,6 +4,8 @@ using System.Text;
 using Antra.NBATestingApp.Data.Model;
 using System.Data.SqlClient;
 using System.Data;
+using System.Linq;
+using Dapper;
 
 namespace Antra.NBATestingApp.Data.Repository
 {
@@ -24,7 +26,7 @@ namespace Antra.NBATestingApp.Data.Repository
 
         public IEnumerable<Team> GetAll()
         {
-            string cmd = "select TeamId,TeamName from Team";
+            string cmd = "select TeamId,TeamName ,Capital from Team";
             DataTable dt = db.Query(cmd, null);
             List<Team> teamCollection = new List<Team>();
             if (dt!=null)
@@ -34,6 +36,7 @@ namespace Antra.NBATestingApp.Data.Repository
                     Team t = new Team();
                     t.TeamId = Convert.ToInt32(item["teamid"]);
                     t.TeamName = Convert.ToString(item["TeamName"]);
+                    t.Capital = Convert.ToDecimal(item["Capital"]);
                     teamCollection.Add(t);
                 }
                 return teamCollection;
@@ -59,13 +62,15 @@ namespace Antra.NBATestingApp.Data.Repository
             }
             return null;
         }
-
+        
         public int Insert(Team item)
         {
-            string cmd = @"Insert into Team values(@teamName)";
-            Dictionary<string, object> t = new Dictionary<string, object>();
-            t.Add("@teamName", item.TeamName);
-            return db.Execute(cmd, t);
+            //string cmd = @"Insert into Team values(@teamName)";
+            //Dictionary<string, object> t = new Dictionary<string, object>();
+            //t.Add("@teamName", item.TeamName);
+            //return db.Execute(cmd, t);
+            IDbConnection con = db.GetConnection();
+            return con.Execute("insert into team (TeamName)values(@TeamName)", item);
         }
 
         public int Update(Team item)

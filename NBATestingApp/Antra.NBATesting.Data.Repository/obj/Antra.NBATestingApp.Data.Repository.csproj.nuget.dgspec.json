@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj": {}
+    "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj": {}
   },
   "projects": {
-    "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj": {
+    "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj",
+        "projectUniqueName": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj",
         "projectName": "Antra.NBATestingApp.Data.Repository",
-        "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj",
+        "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATesting.Data.Repository\\Antra.NBATestingApp.Data.Repository.csproj",
         "packagesPath": "C:\\Users\\Hanson-Aero\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATesting.Data.Repository\\obj\\",
+        "outputPath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATesting.Data.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hanson-Aero\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj": {
-                "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj"
+              "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj": {
+                "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj"
               }
             }
           }
@@ -43,6 +43,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )"
+            },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -71,14 +75,14 @@
         }
       }
     },
-    "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj": {
+    "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
+        "projectUniqueName": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
         "projectName": "Antra.NBATestingApp.Data.Model",
-        "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
+        "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\Antra.NBATestingApp.Data.Model.csproj",
         "packagesPath": "C:\\Users\\Hanson-Aero\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\obj\\",
+        "outputPath": "D:\\Downloads\\Antra\\SEP_Projects\\NBATestingApp\\Antra.NBATestingApp.Data.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hanson-Aero\\AppData\\Roaming\\NuGet\\NuGet.Config",

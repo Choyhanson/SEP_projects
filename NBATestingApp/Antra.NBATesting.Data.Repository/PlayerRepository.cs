@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Linq;
 
 namespace Antra.NBATestingApp.Data.Repository
 {
-    public class PlayerRepository : IRepository<Player>
+    public class PlayerRepository : IRepository<Player>,IPlayerRepository
     {
         DBHelper db;
         public PlayerRepository()
@@ -50,6 +51,31 @@ namespace Antra.NBATestingApp.Data.Repository
         public List<Player> GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Player> GetPlayersByTeamId(int teamId)
+        {
+            string cmd = @"select n.PlayerId,n.PlayerName,T.TeamId,t.TeamName
+                        from NBATeamPlayer n";
+            DataTable dt = db.Query(cmd, null);
+            if (dt != null)
+            {
+                List<Player> playerCollection = new List<Player>();
+                foreach (DataRow item in dt.Rows)
+                {
+                    Player p = new Player();
+                    p.PlayerId = Convert.ToInt32(item["PlayerId"]);
+                    p.PlayerName = Convert.ToString(item["PlayerName"]);
+                    //p.TeamId = Convert.ToInt32(item["TeamId"]);
+                    Team t = new Team();
+                    p.Teams = t;
+                    p.Teams.TeamId = Convert.ToInt32(item["TeamId"]);
+                    p.Teams.TeamName = Convert.ToString(item["TeamName"]);
+                    playerCollection.Add(p);
+                }
+                return playerCollection;
+            }
+            return null;
         }
 
         public int Insert(Player item)

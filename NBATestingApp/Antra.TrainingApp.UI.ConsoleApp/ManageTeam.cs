@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using Antra.NBATestingApp.Data.Model;
 using Antra.NBATestingApp.Data.Repository;
+using System.Linq;
 
 namespace Antra.TrainingApp.UI.ConsoleApp
 {
     class ManageTeam
     {
         IRepository<Team> teamRepository;
-
+        IPlayerRepository playerRepository;
         public ManageTeam()
         {
             teamRepository = new TeamRepository();
+            playerRepository = new PlayerRepository();
         }
         void AddTeam()
         {
@@ -60,12 +62,15 @@ namespace Antra.TrainingApp.UI.ConsoleApp
         }
         void PrintAll()
         {
+
             IEnumerable<Team> teamCollection = teamRepository.GetAll();
             if (teamCollection!=null)
             {
-                foreach (var item in teamCollection )
+                var res = teamCollection.Where(x => x.TeamId == 100);
+
+                foreach (var item in res)
                 {
-                    Console.WriteLine(item.TeamId+"\t"+item.TeamName);
+                    Console.WriteLine(item.TeamId + "\t" + item.TeamName+"\t"+item.Capital);
                 }
             }
         }
@@ -86,7 +91,7 @@ namespace Antra.TrainingApp.UI.ConsoleApp
         }
         public void Run()
         {
-            PrintAll();
+            AddTeam();
         }
 
     }

@@ -10,6 +10,11 @@ namespace Antra.NBATestingApp.Data.Repository
 {
     class DBHelper
     {
+        public SqlConnection GetConnection()
+        {
+            string con = new ConfigurationBuilder().AddJsonFile("appSetting.json").Build().GetConnectionString("NBAPlayerDB");
+            return new SqlConnection(con);
+        }
         public string ConnectionString
         { 
             get
@@ -40,6 +45,7 @@ namespace Antra.NBATestingApp.Data.Repository
             }
             finally
             {
+                con.Close();
                 con.Dispose();
                 cmd.Dispose();
             }
@@ -73,6 +79,7 @@ namespace Antra.NBATestingApp.Data.Repository
             }
             finally
             {
+                con.Close();
                 con.Dispose();
                 cmd.Dispose();
             }

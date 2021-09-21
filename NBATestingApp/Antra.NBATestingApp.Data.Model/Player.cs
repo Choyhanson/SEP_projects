@@ -10,5 +10,6 @@ namespace Antra.NBATestingApp.Data.Model
         public string PlayerName { get; set; }
         //public int TeamId { get; set; }
         public Team Teams { get; set; }
+
     }
 }

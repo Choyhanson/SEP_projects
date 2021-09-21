@@ -24,3 +24,16 @@ D:\Downloads\Antra\Projects\SEP_Training\NBATestingApp\Antra.NBATesting.Data.Rep
 D:\Downloads\Antra\Projects\SEP_Training\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.AssemblyInfo.cs
 D:\Downloads\Antra\Projects\SEP_Training\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.csproj.CoreCompileInputs.cache
 D:\Downloads\Antra\Projects\SEP_Training\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.csproj.CopyComplete
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\bin\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.deps.json
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\bin\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.dll
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\bin\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.pdb
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\bin\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Model.dll
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\bin\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Model.pdb
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.csproj.AssemblyReference.cache
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.AssemblyInfoInputs.cache
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.AssemblyInfo.cs
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.csproj.CoreCompileInputs.cache
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.csproj.CopyComplete
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.dll
+D:\Downloads\Antra\SEP_Projects\NBATestingApp\Antra.NBATesting.Data.Repository\obj\Debug\netcoreapp3.1\Antra.NBATestingApp.Data.Repository.pdb
