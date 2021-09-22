@@ -18,13 +18,14 @@ namespace Infrastructure.Services
 
             var moviesCardResponseModel = new List<MovieCardResponseModel>();
 
-            // mapping entities to models data so that services alwasy return models not entities
+            // mapping entities to models data so that services always return models not entities
             foreach (var item in movies)
             {
-                moviesCardResponseModel.Add(new MovieCardResponseModel { Id = item.Id, PosterUrl = item.PosterUrl });
+                moviesCardResponseModel.Add(new MovieCardResponseModel 
+                { Id = item.Id, PosterUrl = item.PosterUrl });
             }
 
-            // need to return list movieresponse models
+            // need to return list movieResponse models
             return moviesCardResponseModel;
         }
     }

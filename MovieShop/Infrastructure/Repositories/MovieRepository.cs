@@ -12,9 +12,9 @@ namespace Infrastructure.Repositories
             //go to database and execute SP, SPL
             var movies = new List<Movie> 
             {
-                new Movie {Id =1, Title="Inception", PosterUrl="",Revenue=825532764},
-                new Movie {Id =2, Title="Interstellar", PosterUrl="",Revenue=825532764},
-                new Movie {Id =3, Title="The Dark Knight", PosterUrl="",Revenue=825532764}
+                new Movie {Id =1, Title="Inception", PosterUrl="Inception.jpg",Revenue=825532764},
+                new Movie {Id =2, Title="Interstellar", PosterUrl="Interstellar.jpg",Revenue=825532764},
+                new Movie {Id =3, Title="The Dark Knight", PosterUrl="The_Dark_Knight.jpg",Revenue=825532764}
             };
             return movies;
         }
