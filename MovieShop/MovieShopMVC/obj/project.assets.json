@@ -51,11 +51,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
+      "projectUniqueName": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
       "projectName": "MovieShopMVC",
-      "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
+      "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
       "packagesPath": "C:\\Users\\Hanson-Aero\\.nuget\\packages\\",
-      "outputPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\MovieShopMVC\\obj\\",
+      "outputPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\MovieShopMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hanson-Aero\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -71,11 +71,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {
-              "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj"
+            "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {
+              "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj"
             },
-            "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\Infrastructure\\Infrastructure.csproj"
+            "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {}
+    "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {}
   },
   "projects": {
-    "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {
+    "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
+        "projectUniqueName": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
         "projectName": "ApplicationCore",
-        "projectPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
+        "projectPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
         "packagesPath": "C:\\Users\\Hanson-Aero\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\ApplicationCore\\obj\\",
+        "outputPath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hanson-Aero\\AppData\\Roaming\\NuGet\\NuGet.Config",

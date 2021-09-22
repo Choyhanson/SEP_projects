@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CYfM9QOjys+TifBX7ILICgNJX66EgbgByMIWjAe8qiTiF6tztlaR0S+TlJlec52ngZY5tCZsDAYVzhBbg0I+pQ==",
+  "dgSpecHash": "Dtrl3SEzCWEZXlkZZRoUtbbcBRccduDGlHZYaqQjFAlP+FvuYR/tAO1mU+sad6TEjCO2tT2fmfPRr1rcvKhzXg==",
   "success": true,
-  "projectFilePath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

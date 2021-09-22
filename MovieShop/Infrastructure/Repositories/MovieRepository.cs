@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Infrastructure.Repositories
 {
-    class MovieRepository : IMovieRepository
+    public class MovieRepository : IMovieRepository
     {
         public IEnumerable<Movie> Get30HighestGrossingMovies()
         {

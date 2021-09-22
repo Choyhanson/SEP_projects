@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services;
+﻿using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MovieShopMVC.Models;
@@ -20,8 +21,12 @@ namespace MovieShopMVC.Controllers
             // Controller name and look for view with same name as action method name
             // want to display top revenue movies
             // get model data
+
             var movieService = new MovieService();
             var movies = movieService.Get30HighestGrossingMovies();
+
+            //var movieRepo = new MovieRepository();
+            //var movies = movieRepo.Get30HighestGrossingMovies();
             return View(movies);
         }
 

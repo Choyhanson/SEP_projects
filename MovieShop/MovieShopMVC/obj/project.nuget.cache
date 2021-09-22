@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EGYjrfkSytRdzIY60dZ/KwVj7jdt4nIcukh3su6v2AMLSpSZNvOK+kFPVDtOYuyac+zZ/FK+O11yv2rHYjWsMA==",
+  "dgSpecHash": "pedK8lzt1hcYlXHPUemSqen1bZlnGHGawh9TF34lBoqNj2dFyMn++JlRRXydeoRhdmaKrCDurqOPFpUTV7fQGA==",
   "success": true,
-  "projectFilePath": "D:\\Downloads\\Antra\\Projects\\SEP_Training\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
+  "projectFilePath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
