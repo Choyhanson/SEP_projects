@@ -28,3 +28,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\obj\Debug\net5.0\Infras
 D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
+D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.json
+D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.dev.json
+D:\Downloads\Antra\SEP_Projects\MovieShop\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache

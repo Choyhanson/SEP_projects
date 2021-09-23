@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cAQFXI/nfaISmEhWdwyfo0lgccgU0TdHoDkIQ6MfU2n9KMfXfp/SfgyZR3F4Xzgsh7ql0cXymggrQHbeYOByMA==",
+  "dgSpecHash": "VLJ599vHEf1DqgvypA0ptiQJfZQNueuXAnKKH4bRWUM7ph9wsakc+aPpe7JcEESAnLFqV/FtQkjuRHrVpc7p+A==",
   "success": true,
   "projectFilePath": "D:\\Downloads\\Antra\\SEP_Projects\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Hanson-Aero\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
