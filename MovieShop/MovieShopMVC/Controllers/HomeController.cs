@@ -1,4 +1,5 @@
-﻿using Infrastructure.Repositories;
+﻿using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,9 +11,10 @@ namespace MovieShopMVC.Controllers
 {
     public class HomeController : Controller
     {
-
-        public HomeController()
+        private readonly IMovieService _movieService;
+        public HomeController(IMovieService movieService)
         {
+            _movieService = movieService;
         }
 
         public IActionResult Index()
@@ -22,7 +24,7 @@ namespace MovieShopMVC.Controllers
             // want to display top revenue movies
             // get model data
 
-            var movieService = new MovieService();
+            var movieService = _movieService;
             var movies = movieService.Get30HighestGrossingMovies();
 
             //var movieRepo = new MovieRepository();

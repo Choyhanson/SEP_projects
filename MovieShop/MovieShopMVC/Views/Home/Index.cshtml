@@ -4,34 +4,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-@foreach (var movie in Model)
-{
-    <div>
-        @movie.Id
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+            <div class="col-xl-2 col-sm-4 col-lg-3">
+                <partial name="_MovieCard" model="movie"/>
+            </div>
+            }
+        </div>
     </div>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <div>
-        @*@movie.Title*@
-    </div>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <div>
-        @movie.PosterUrl
-    </div>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <div>
-        @*@movie.Revenue*@
-    </div>
-    <br />
-}
-
-
-<style>
-    div {
-        display: inline-block;
-    }
-</style>
-
-@*<div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>*@
+</div>

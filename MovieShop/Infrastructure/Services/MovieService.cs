@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Models;
+using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Repositories;
 using System;
@@ -9,12 +10,17 @@ namespace Infrastructure.Services
 {
     public class MovieService : IMovieService
     {
+        private readonly IMovieRepository _movieRepository;
+
+        public MovieService(IMovieRepository movieRepository)
+        {
+            _movieRepository = movieRepository;
+        }
         public IEnumerable<MovieCardResponseModel> Get30HighestGrossingMovies()
         {
-            var repo = new MovieRepository();
 
             // list of movie entities
-            var movies = repo.Get30HighestGrossingMovies();
+            var movies = _movieRepository.Get30HighestGrossingMovies();
 
             var moviesCardResponseModel = new List<MovieCardResponseModel>();
 

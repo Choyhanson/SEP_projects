@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ApplicationCore.Entities
 {
     public class Movie
-    {   
+    {
         public int Id { get; set; }
         [MaxLength(64)]
         public string Title { get; set; }
@@ -32,5 +32,14 @@ namespace ApplicationCore.Entities
         [MaxLength(64)]
         public string CreatedBy { get; set; }
         public decimal? Rating { get; set; }
+
+
+        public ICollection<Trailer> Trailers { get; set; }
+        public ICollection<MovieGenre> Genre { get; set; }
+        public ICollection<MovieCrew> Crews { get; set; }
+        public ICollection<MovieCast> Casts { get; set; }
+        public ICollection<Purchase> Users { get; set; }
+        public ICollection<Review> UserReview { get; set; }
+        public ICollection<Favorite> UserFavorite { get; set; }
     }
 }

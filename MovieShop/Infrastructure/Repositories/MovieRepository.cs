@@ -1,21 +1,23 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.RepositoryInterfaces;
+using Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Infrastructure.Repositories
 {
     public class MovieRepository : IMovieRepository
     {
+        private readonly MovieShopDbContext _movieShopDbContext;
+        public MovieRepository(MovieShopDbContext dbContext)
+        {
+            _movieShopDbContext = dbContext;
+        }
         public IEnumerable<Movie> Get30HighestGrossingMovies()
         {
-            //go to database and execute SP, SPL
-            var movies = new List<Movie> 
-            {
-                new Movie {Id =1, Title="Inception", PosterUrl="Inception.jpg",Revenue=825532764},
-                new Movie {Id =2, Title="Interstellar", PosterUrl="Interstellar.jpg",Revenue=825532764},
-                new Movie {Id =3, Title="The Dark Knight", PosterUrl="The_Dark_Knight.jpg",Revenue=825532764}
-            };
+            // go to database and get data using LINQ with EF
+            var movies = _movieShopDbContext.Movie.OrderByDescending(m => m.Revenue).Take(30).ToList();
             return movies;
         }
     }
