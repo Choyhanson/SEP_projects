@@ -1,4 +1,5 @@
-﻿using ApplicationCore.ServiceInterfaces;
+﻿using ApplicationCore.RepositoryInterfaces;
+using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,21 +13,25 @@ namespace MovieShopMVC.Controllers
     {
         //readonly type only could be modified in constructor
         private readonly IMovieService _movieService;
-        public MoviesController(IMovieService movieService)
+        //private readonly IMovieRepository _movieRepository;
+
+        public MoviesController(IMovieService movieService, IMovieRepository movieRepository)
         {
             _movieService = movieService;
+            //_movieRepository = movieRepository;
         }
 
         public IActionResult GetTopRevenueMovies()
         {
             //var movieService = new MovieNoSQLService();
-            var movies = _movieService.Get30HighestGrossingMovies();
+            var movies = _movieService.Get30HighestMovies();
             return View(movies);
         }
      
         public IActionResult Details(int id)
         {
-            return View();
+            var movie = _movieService.GetCardByIdModels(id);
+            return View(movie);
         }
     }
 }

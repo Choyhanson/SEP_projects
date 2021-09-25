@@ -25,10 +25,8 @@ namespace MovieShopMVC.Controllers
             // get model data
 
             var movieService = _movieService;
-            var movies = movieService.Get30HighestGrossingMovies();
+            var movies = movieService.Get30HighestMovies();
 
-            //var movieRepo = new MovieRepository();
-            //var movies = movieRepo.Get30HighestGrossingMovies();
             return View(movies);
         }
 
@@ -37,11 +35,7 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
-        public IActionResult Test()
-        {
-            return View();
-        }
-
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

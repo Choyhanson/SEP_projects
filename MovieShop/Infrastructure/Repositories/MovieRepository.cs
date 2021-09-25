@@ -20,5 +20,17 @@ namespace Infrastructure.Repositories
             var movies = _movieShopDbContext.Movie.OrderByDescending(m => m.Revenue).Take(30).ToList();
             return movies;
         }
+        public IEnumerable<Movie> GetAllMovies()
+        {
+            var movies = _movieShopDbContext.Movie.OrderBy(m => m.Title).ThenBy(m => m.Id).Take(100).ToList();
+            //var movies = _movieShopDbContext.Movie.OrderBy(m => new { m.Title, m.Id }).ToList();
+            return movies;
+        }
+
+        public IEnumerable<Movie> GetById(int id)
+        {
+            var movies = _movieShopDbContext.Movie.Where(i => i.Id==id).ToList();
+            return movies;
+        }
     }
 }

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApplicationCore.Models.MovieCardByIdModel>
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+
+@foreach (var item in Model)
+{
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('@item.BackdropUrl');">
+            <div class="col-sm">
+                <img src="@item.PosterUrl" alt="@item.Id" />
+            </div>
+            <div class="col-sm text-white">
+                <h3 ><strong>@item.Title</strong></h3>
+                <span>@item.Tagline</span><br />
+                <span>@item.RunTime m  |  @item.CreatedDate</span><br />
+                <p>
+                    @item.Overview
+                </p>
+            </div>
+            <div class="col-sm">
+                <div><button type="button" class="btn btn-dark btn-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                    </svg>
+                    REVIEW
+                    </button></div>
+                <div><button type="button" class="btn btn-light btn-lg">WATCH MOVIE</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+
