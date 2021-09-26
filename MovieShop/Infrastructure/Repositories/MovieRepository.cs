@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<Movie> GetById(int id)
         {
-            var movies = _movieShopDbContext.Movie.Where(i => i.Id==id).ToList();
+            var movies = _movieShopDbContext.Movie.Where(i => i.Id==id);
             return movies;
         }
     }

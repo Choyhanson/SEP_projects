@@ -1,4 +1,5 @@
-﻿using ApplicationCore.ServiceInterfaces;
+﻿using ApplicationCore.Models;
+using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,11 @@ namespace MovieShopMVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
-        public HomeController(IMovieService movieService)
+        private readonly IMovieGenreService _movieGenreService;
+        public HomeController(IMovieService movieService,IMovieGenreService movieGenreService)
         {
             _movieService = movieService;
+            _movieGenreService = movieGenreService;
         }
 
         public IActionResult Index()
@@ -33,6 +36,19 @@ namespace MovieShopMVC.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Test()
+        {
+            var movie = _movieService.GetCardByIdModels(47);
+            var genre = _movieGenreService.GetGenreByMovieId(47);
+
+            var table = new TableViewModel
+            {
+                Movies = movie,
+                Genres = genre
+            };
+            return View(table);
         }
 
        

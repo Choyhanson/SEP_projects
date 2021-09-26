@@ -1,39 +1,83 @@
-﻿@model IEnumerable<ApplicationCore.Models.MovieCardByIdModel>
+﻿@model ApplicationCore.Models.TableViewModel
 
 @{
     ViewData["Title"] = "Movie Details";
 }
 
 
-@foreach (var item in Model)
+@foreach (var item in Model.Movies)
 {
-<div class="rounded">
-    <div class="container-fluid">
-        <div class="row" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('@item.BackdropUrl');">
-            <div class="col-sm">
-                <img src="@item.PosterUrl" alt="@item.Id" />
+    <div class="rounded">
+        <div class="container-fluid">
+            <div class="row" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('@item.BackdropUrl');">
+                <div class="col-sm">
+                    <img src="@item.PosterUrl" alt="@item.Id" />
+                </div>
+                <div class="col-sm text-white">
+                    <h3><strong>@item.Title</strong></h3>
+                    <span class="text-muted" style="font-size:smaller;">@item.Tagline</span><br /><br />
+                    <div class="row">
+                        <div class="col-sm-4"><h6 class="text-muted"><strong>@item.RunTime m  |  @item.Year</strong></h6></div>
+                        <div class="col-sm">
+                            @foreach (var genre in Model.Genres)
+                            {
+                                <span class="badge badge-dark badge-pill">@genre.GenreName</span>
+                            }
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+
+                    </div>
+                    <p>
+                        @item.Overview
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <div>
+                        <button type="button" class="btn btn-dark btn-lg">
+                            <i class="bi bi-pencil-square"></i>
+                            REVIEW
+                        </button>
+                    </div>
+                    <div><button type="button" class="btn btn-light btn-lg">BUY $@item.Price </button></div>
+                </div>
             </div>
-            <div class="col-sm text-white">
-                <h3 ><strong>@item.Title</strong></h3>
-                <span>@item.Tagline</span><br />
-                <span>@item.RunTime m  |  @item.CreatedDate</span><br />
-                <p>
-                    @item.Overview
-                </p>
-            </div>
-            <div class="col-sm">
-                <div><button type="button" class="btn btn-dark btn-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                    </svg>
-                    REVIEW
-                    </button></div>
-                <div><button type="button" class="btn btn-light btn-lg">WATCH MOVIE</button></div>
+            <div class="row mt-4">
+                <div class="col-sm-4 bg-light">
+                    <h4><strong>MOVIE FACT</strong></h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            Release Date  <span class="badge badge-dark badge-pill">@item.Date</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-hourglass-split"></i>
+                            Run Time  <span class="badge badge-dark badge-pill">@item.RunTime m</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-cash-coin"></i>
+                            Box Office  <span class="badge badge-dark badge-pill">@item.Revenue</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-currency-dollar"></i>
+                            Budget  <span class="badge badge-dark badge-pill">@item.Budget</span>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fa fa-imdb"></i>
+                            <a href=@item.ImdbUrl style="text-decoration:none;color:black;"><i class="fa fa-share-square-o"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4">
+                    <h4><strong>CAST</strong></h4>
+                    <ul class="list-group list-group-flush">
+                        <li></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 }
-
 

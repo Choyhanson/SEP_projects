@@ -12,8 +12,8 @@ namespace ApplicationCore.Models
         public string Title { get; set; }
         public string Overview { get; set; }
         public string Tagline { get; set; }
-        public decimal? Budget { get; set; }
-        public decimal? Revenue { get; set; }
+        public string Budget { get; set; }
+        public string Revenue { get; set; }
         public string ImdbUrl { get; set; }
         public string TmdbUrl { get; set; }
         public string PosterUrl { get; set; }
@@ -27,5 +27,7 @@ namespace ApplicationCore.Models
         public string UpdatedBy { get; set; }
         public string CreatedBy { get; set; }
         public decimal? Rating { get; set; }
+        public int Year { get; set; }
+        public string Date { get; set; }
     }
 }

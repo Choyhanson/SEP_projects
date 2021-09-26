@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ApplicationCore.Models.MovieCardResponseModel>
+
+
+@{
+    ViewData["Title"] = "Movie By Genre";
+}
+
+<div class="rounded">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                <div class="col-xl-2 col-sm-4 col-lg-3">
+                    <partial name="_MovieCard" model="movie" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-lg-center">
+        <li class="page-item ">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item " aria-current="page">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+        </li>
+    </ul>
+</nav>

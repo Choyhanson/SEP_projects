@@ -123,3 +123,4 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\runtimes
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\GetTopRevenueMovies.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MovieCard.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\GenreViews.cshtml.g.cs

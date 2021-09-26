@@ -25,7 +25,7 @@ namespace Infrastructure.Services
             foreach (var item in movies)
             {
                 moviesCardResponseModel.Add(new MovieCardResponseModel
-                { Id = item.Id, PosterUrl = item.PosterUrl });
+                { MovieId = item.Id, MoviePosterUrl = item.PosterUrl });
             }
 
             return moviesCardResponseModel;
@@ -39,7 +39,7 @@ namespace Infrastructure.Services
             foreach (var item in movies)
             {
                 moviesCardResponseModel.Add(new MovieCardResponseModel
-                { Id = item.Id, PosterUrl = item.PosterUrl });
+                { MovieId = item.Id, MoviePosterUrl = item.PosterUrl });
             }
 
             return moviesCardResponseModel;
@@ -48,17 +48,28 @@ namespace Infrastructure.Services
         public IEnumerable<MovieCardByIdModel> GetCardByIdModels(int id)
         {
             var movie = _movieRepository.GetById(id);
+
             var movies = new List<MovieCardByIdModel>();
 
             foreach (var item in movie)
             {
                 movies.Add(new MovieCardByIdModel
-                { Id = item.Id, Title = item.Title, PosterUrl=item.PosterUrl,
-                Overview=item.Overview, ReleaseDate=item.ReleaseDate,
-                RunTime=item.RunTime, Revenue=item.Revenue,
-                Budget=item.Budget,Price=item.Price,BackdropUrl=item.BackdropUrl,
-                Tagline=item.Tagline, 
-                CreatedDate=item.CreatedDate
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    PosterUrl = item.PosterUrl,
+                    Overview = item.Overview,
+                    Date = Convert.ToDateTime(item.ReleaseDate).ToShortDateString(),
+                    Year = Convert.ToDateTime(item.ReleaseDate).Year,
+                    RunTime = item.RunTime,
+                    Revenue = Convert.ToDecimal(item.Revenue).ToString("C2"),
+                    Budget = Convert.ToDecimal(item.Budget).ToString("C2"),
+                    Price = item.Price,
+                    BackdropUrl = item.BackdropUrl,
+                    Tagline = item.Tagline,
+                    CreatedDate = item.CreatedDate,
+                    ImdbUrl = item.ImdbUrl,
+                    TmdbUrl = item.TmdbUrl
                 });
             }
 
