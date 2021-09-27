@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
 using System;
@@ -17,17 +18,20 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<Genre> GetAllGenres()
         {
-            var genres = _movieShopDbContext.Genres.ToList();
+            var genres = _movieShopDbContext.Genres;
             return genres;
         }
 
-        public IEnumerable<Movie> GetAllMoviesByGenre(int genreId)
+        public IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId)
         {
             var movies = (from m in _movieShopDbContext.Movie
                           join mg in _movieShopDbContext.MovieGenres
                           on m.Id equals mg.MovieId
                           where mg.GenreId == genreId
-                          select m).Take(30);
+                          select new MovieCardResponseModel{MovieId=m.Id,
+                                                            GenreId =mg.GenreId,
+                                                            MovieTitle=m.Title,
+                                                            MoviePosterUrl =m.PosterUrl,});
             return movies;
         }
 

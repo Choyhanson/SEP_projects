@@ -8,12 +8,13 @@
 @foreach (var item in Model.Movies)
 {
     <div class="rounded">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <div class="row" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('@item.BackdropUrl');">
-                <div class="col-sm">
-                    <img src="@item.PosterUrl" alt="@item.Id" />
+                <div class="col-sm-4 pr-lg-0">
+                    <img src="@item.PosterUrl" alt="@item.Id" style="width:240px;height:390px;" class="float-right img-fluid" />
                 </div>
-                <div class="col-sm text-white">
+                <div class="col-sm-1 "></div>
+                <div class="col-sm-5 text-white">
                     <h3><strong>@item.Title</strong></h3>
                     <span class="text-muted" style="font-size:smaller;">@item.Tagline</span><br /><br />
                     <div class="row">
@@ -25,55 +26,83 @@
                             }
                         </div>
                     </div>
-                    <br />
-                    <div>
-
+                    <div class="mb-lg-2">
+                        <h4><span class="badge bg-success">@Model.Rating</span></h4>
                     </div>
                     <p>
                         @item.Overview
                     </p>
                 </div>
-                <div class="col-sm">
-                    <div>
-                        <button type="button" class="btn btn-dark btn-lg">
+                <div class="col-sm ">
+                    <div class="row justify-content-end m-lg-3">
+                        <button type="button" class="btn btn-dark btn-lg " style="width:150px;">
                             <i class="bi bi-pencil-square"></i>
                             REVIEW
                         </button>
                     </div>
-                    <div><button type="button" class="btn btn-light btn-lg">BUY $@item.Price </button></div>
+                    <div class="row justify-content-end m-lg-3"><button type="button" class="btn btn-light btn-lg "  style="width:150px;">BUY $@item.Price </button></div>
                 </div>
             </div>
-            <div class="row mt-4">
+            <div class="row mt-3">
                 <div class="col-sm-4 bg-light">
-                    <h4><strong>MOVIE FACT</strong></h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                            Release Date  <span class="badge badge-dark badge-pill">@item.Date</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-hourglass-split"></i>
-                            Run Time  <span class="badge badge-dark badge-pill">@item.RunTime m</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-cash-coin"></i>
-                            Box Office  <span class="badge badge-dark badge-pill">@item.Revenue</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-currency-dollar"></i>
-                            Budget  <span class="badge badge-dark badge-pill">@item.Budget</span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fa fa-imdb"></i>
-                            <a href=@item.ImdbUrl style="text-decoration:none;color:black;"><i class="fa fa-share-square-o"></i></a>
-                        </li>
-                    </ul>
+                    <div >
+                         <h4 class="mt-2"><strong>MOVIE FACT</strong></h4>
+                            <ul class="list-group list-group-flush ">
+                                <li class="list-group-item bg-light">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    Release Date  <span class="badge badge-dark badge-pill">@item.Date</span>
+                                </li>
+                                <li class="list-group-item bg-light">
+                                    <i class="bi bi-hourglass-split"></i>
+                                    Run Time  <span class="badge badge-dark badge-pill">@item.RunTime m</span>
+                                </li>
+                                <li class="list-group-item bg-light">
+                                    <i class="bi bi-cash-coin"></i>
+                                    Box Office  <span class="badge badge-dark badge-pill">@item.Revenue</span>
+                                </li>
+                                <li class="list-group-item bg-light">
+                                    <i class="bi bi-currency-dollar"></i>
+                                    Budget  <span class="badge badge-dark badge-pill">@item.Budget</span>
+                                </li>
+                                <li class="list-group-item bg-light">
+                                    <i class="fa fa-imdb"></i>
+                                    <a href=@item.ImdbUrl style="text-decoration:none;color:black;"><i class="fa fa-share-square-o"></i></a>
+                                </li>
+                            </ul>
+                    </div>
+                    <br />
+                    <div>
+                        <h4 class="mt-1"><strong>TRAILERS</strong></h4>
+                            <ul class="list-group list-group-flush ">
+                                @foreach (var trailer in Model.Trailers)
+                                {
+                                <li class="list-group-item bg-light ">
+                                    <i class="bi bi-play-btn-fill"></i>&emsp;
+                                    <a href="@trailer.TrailerUrl" style="text-decoration:none;color:black;">@trailer.Name</a>
+                                </li>
+                                }
+
+                            </ul>
+                    </div>
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="col-sm-4">
-                    <h4><strong>CAST</strong></h4>
+                <div class="col-sm-5">
+                    <h4 class="mt-2"><strong>CAST</strong></h4>
                     <ul class="list-group list-group-flush">
-                        <li></li>
+                        @foreach (var cast in Model.Casts)
+                        {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <a href="@cast.TmdbUrl">
+                                        <img src="@cast.ProfilePath" alt="Profile Link" class="rounded-circle" style="width:40px;height:60px;">
+                                    </a>
+                                </div>
+                                <div class="col-sm">@cast.Name</div>
+                                <div class="col-sm">@cast.Character</div>
+                            </div>
+                        </li>
+                        }
                     </ul>
                 </div>
             </div>

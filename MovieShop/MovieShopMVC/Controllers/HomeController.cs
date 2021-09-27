@@ -3,10 +3,12 @@ using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using MovieShopMVC.Models;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MovieShopMVC.Controllers
 {
@@ -20,17 +22,33 @@ namespace MovieShopMVC.Controllers
             _movieGenreService = movieGenreService;
         }
 
-        public IActionResult Index()
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            base.OnActionExecuted(context);
+            ViewBag.Genres = _movieGenreService.GetAllGenres();
+            ViewBag.Method = _movieGenreService;
+        }
+
+        public IActionResult Index(int Page = 1)
         {
             // by default it will look inside views folder => folder name with same name as
             // Controller name and look for view with same name as action method name
             // want to display top revenue movies
             // get model data
 
-            var movieService = _movieService;
-            var movies = movieService.Get30HighestMovies();
+            var movie = _movieService.GetAllMovies();
+            int itemNum = 30;
+            int totalItemNum = movie.Count();
+            var movies = movie.Skip((Page - 1) * itemNum).Take(itemNum);
+            var table = new TableViewModel
+            {
+                Genres = movies,
+                TotalItemNum = totalItemNum,
+                CurrentPage = Page
+            };
 
-            return View(movies);
+
+            return View(table);
         }
 
         public IActionResult Privacy()
@@ -40,15 +58,11 @@ namespace MovieShopMVC.Controllers
 
         public IActionResult Test()
         {
-            var movie = _movieService.GetCardByIdModels(47);
-            var genre = _movieGenreService.GetGenreByMovieId(47);
+            
+            var genres = _movieGenreService.GetAllGenres();
 
-            var table = new TableViewModel
-            {
-                Movies = movie,
-                Genres = genre
-            };
-            return View(table);
+            
+            return View(genres);
         }
 
        

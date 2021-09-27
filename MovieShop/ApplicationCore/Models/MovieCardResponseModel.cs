@@ -14,5 +14,6 @@ namespace ApplicationCore.Models
         public string GenreName { get; set; }
         public string MovieTitle { get; set; }
         public string MoviePosterUrl { get; set; }
+        public int Pages { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace ApplicationCore.ServiceInterfaces
     {
         IEnumerable<MovieCardResponseModel> GetAllGenres();
         IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId);
-        IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId);
+        //TableViewModel GetAllMoviesByGenre(int genreId);
     }
 }

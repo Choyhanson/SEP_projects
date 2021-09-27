@@ -33,20 +33,18 @@ namespace Infrastructure.Services
             return movieGenreModels;
         }
 
-        public IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId)
-        {
-            var movies = _movieGenreRepository.GetAllMoviesByGenre(genreId);
-            var movieGenreModels = new List<MovieCardResponseModel>();
-            foreach (var item in movies)
-            {
-                movieGenreModels.Add(new MovieCardResponseModel
-                { 
-                    MovieId=item.Id,
-                    MoviePosterUrl=item.PosterUrl,
-                });
-            }
-            return movieGenreModels;
-        }
+        //public TableViewModel GetAllMoviesByGenre(int genreId)
+        //{
+        //    var movies = _movieGenreRepository.GetAllMoviesByGenre(genreId);
+        //    var pages = movies.Count();
+
+        //    var movieGenreModels = new TableViewModel
+        //    {
+        //        Genres = movies,
+        //        Pages=pages
+        //    };
+        //    return movieGenreModels;
+        //}
 
         public IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId)
         {

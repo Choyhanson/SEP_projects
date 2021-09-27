@@ -1,18 +1,23 @@
-﻿@model ApplicationCore.Models.TableViewModel
+﻿@model IEnumerable<ApplicationCore.Models.MovieCardResponseModel>
 
 
 
 <h1>Test View</h1>
 
-@foreach (var item in Model.Movies)
+@foreach (var item in Model)
 {
-<div>
-    @item.Title     @item.Revenue
-</div>
+    <div>
+        @item.GenreId     @item.GenreName
+    </div>
 }
-@foreach (var item in Model.Genres)
-{
-<div>
-    @item.GenreId    @item.GenreName
-</div>
+
+@{
+    var res = ViewBag.Method.GetAllMoviesByGenre(1);
+
 }
+@foreach (var item in res)
+    {
+<div>
+    @item.MovieId   @item.MoviePosterUrl
+</div>
+    }

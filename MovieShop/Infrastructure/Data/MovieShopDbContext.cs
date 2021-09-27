@@ -32,7 +32,7 @@ namespace Infrastructure.Data
         public DbSet<Favorite> Favorites { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-
+        public DbSet<Review> Reviews { get; set; }
 
         // Fluent API way of modeling the database
 

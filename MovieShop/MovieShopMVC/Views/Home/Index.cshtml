@@ -1,34 +1,78 @@
-﻿@model IEnumerable<ApplicationCore.Models.MovieCardResponseModel>
+﻿@model ApplicationCore.Models.TableViewModel
 
 @{
     ViewData["Title"] = "Home Page";
+    ViewBag.Length = Model.TotalItemNum;
+    //int itemPerPage = Model.Genres.Count();
+    int totalPages = ViewBag.Length / 30 + 1;
+    int currentPage = Model.CurrentPage;
+    int length = currentPage + 6;
+    int i;
+    if (currentPage <= 3)
+    {
+        i = 1;
+        length = 7;
+    }
+    else if (currentPage + 3 >= totalPages)
+    {
+        i = totalPages - 6 > 0 ? totalPages - 6 : 1;
+    }
+    else
+    {
+        i = currentPage - 3;
+        length = currentPage + 3;
+
+    }
 }
 
 <div class="rounded">
     <div class="container-fluid">
         <div class="row">
-            @foreach (var movie in Model)
+            @foreach (var movie in Model.Genres)
             {
-            <div class="col-xl-2 col-sm-4 col-lg-3">
-                <partial name="_MovieCard" model="movie"/>
-            </div>
+                ViewBag.GenreId = movie.GenreId;
+                <div class="col-xl-2 col-sm-4 col-lg-3">
+                    <partial name="_MovieCard" model="movie" />
+                </div>
             }
         </div>
     </div>
+    <h3><span class="badge bg-light ml-lg-3">Pages: @currentPage/@totalPages</span> </h3>
 </div>
+
+@{
+    string previousStatus = currentPage == 1 ? "disabled" : "";
+    string nextStatus = currentPage == totalPages ? "disabled" : "";
+}
 
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-lg-center">
-        <li class="page-item ">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+
+        <li class="page-item @previousStatus">
+            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.GenreId" asp-route-Page="@currentPage-1">&laquo;</a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
         <li class="page-item " aria-current="page">
-            <a class="page-link" href="#">2</a>
+            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.GenreId" asp-route-Page="1">FirstPage</a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-            <a class="page-link" href="#">&raquo;</a>
+        @do
+        {
+            @if (currentPage == i)
+            {
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item" aria-current="page">
+                    <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.GenreId" asp-route-Page="@i">@i</a>
+                </li>
+            }
+            i++;
+        } while (i <= length && i <= totalPages);
+        <li class="page-item @nextStatus">
+            <a class="page-link" asp-controller="Home" asp-action="Index" asp-route-id="@ViewBag.GenreId" asp-route-Page="@currentPage+1">&raquo;</a>
         </li>
     </ul>
 </nav>
+

@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
 
@@ -8,6 +9,6 @@ namespace ApplicationCore.RepositoryInterfaces
     {
         IEnumerable<Genre> GetAllGenres();
         IEnumerable<Genre> GetGenreByMovieId(int movieId);
-        IEnumerable<Movie> GetAllMoviesByGenre(int genreId);
+        IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId);
     }
 }
