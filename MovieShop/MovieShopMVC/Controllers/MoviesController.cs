@@ -1,13 +1,11 @@
 ﻿using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MovieShopMVC.Controllers
 {
@@ -35,7 +33,7 @@ namespace MovieShopMVC.Controllers
         public IActionResult GetTopRevenueMovies()
         {
             //var movieService = new MovieNoSQLService();
-            var movies = _movieService.Get30HighestMovies();
+            var movies = _movieService.GetSortByHighestMovies();
             return View(movies);
         }
      
@@ -59,16 +57,21 @@ namespace MovieShopMVC.Controllers
             };
             return View(table);
         }
-        public IActionResult GenreViews(int id,int Page=1)
+        public IActionResult GenreViews(int id,int Page=1, string Sort="default")
         {
+            
+            var movieModel = _movieGenreService.SortDisplay(
+                _movieGenreRepository.GetAllMoviesByGenre(id),Sort);
+
             int itemNum = 30;
-            int totalItemNum = _movieGenreRepository.GetAllMoviesByGenre(id).Count();
-            var movies = _movieGenreRepository.GetAllMoviesByGenre(id).Skip((Page - 1) * itemNum).Take(itemNum);
+            int totalItemNum = movieModel.Count();
+            var movies = movieModel.Skip((Page - 1) * itemNum).Take(itemNum);
             var table = new TableViewModel
             {
                 Genres = movies,
                 TotalItemNum = totalItemNum,
-                CurrentPage=Page
+                CurrentPage=Page,
+                GenreId=id
             };
 
             return View(table);

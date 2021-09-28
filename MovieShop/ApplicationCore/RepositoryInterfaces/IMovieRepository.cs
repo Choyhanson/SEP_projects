@@ -7,8 +7,8 @@ namespace ApplicationCore.RepositoryInterfaces
 {
     public interface IMovieRepository
     {
-        IEnumerable<Movie> Get30HighestGrossingMovies();
-        IEnumerable<Movie> GetAllMovies();
+        IEnumerable<Movie> GetSortByGrossingMovies();
+        IEnumerable<MovieCardResponseModel> GetAllMovies();
         IEnumerable<Movie> GetById(int id);
         Decimal? GetMovieRating(int id);
         IEnumerable<MovieCastModel> GetCastByMovie(int id);

@@ -1,25 +1,26 @@
 ﻿using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
-using Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace Infrastructure.Services
 {
     public class MovieService : IMovieService
     {
         private readonly IMovieRepository _movieRepository;
+        private readonly IMovieGenreService _movieGenreService;
 
-        public MovieService(IMovieRepository movieRepository)
+        public MovieService(IMovieRepository movieRepository, IMovieGenreService movieGenreService)
         {
             _movieRepository = movieRepository;
+            _movieGenreService = movieGenreService;
         }
         
-        public IEnumerable<MovieCardResponseModel> Get30HighestMovies()
+        public IEnumerable<MovieCardResponseModel> GetSortByHighestMovies()
         {
-            var movies = _movieRepository.Get30HighestGrossingMovies();
+            var movies = _movieRepository.GetSortByGrossingMovies();
             var moviesCardResponseModel = new List<MovieCardResponseModel>();
 
             foreach (var item in movies)
@@ -31,18 +32,22 @@ namespace Infrastructure.Services
             return moviesCardResponseModel;
         }
 
-        public IEnumerable<MovieCardResponseModel> GetAllMovies()
+        public TableViewModel GetAllMovies(int Page=1,string Sort="default")
         {
-            var movies = _movieRepository.GetAllMovies();
-            var moviesCardResponseModel = new List<MovieCardResponseModel>();
+            var movies = _movieGenreService.SortDisplay(_movieRepository.GetAllMovies(),Sort);
 
-            foreach (var item in movies)
+            int itemNum = 30;
+            int totalItemNum = movies.Count();
+            var movie = movies.Skip((Page - 1) * itemNum).Take(itemNum);
+
+            var table = new TableViewModel
             {
-                moviesCardResponseModel.Add(new MovieCardResponseModel
-                { MovieId = item.Id, MoviePosterUrl = item.PosterUrl });
-            }
+                Genres = movie,
+                TotalItemNum = totalItemNum,
+                CurrentPage = Page,
+            };
 
-            return moviesCardResponseModel;
+            return table;
         }
 
         public IEnumerable<MovieCardByIdModel> GetCardByIdModels(int id)

@@ -1,12 +1,8 @@
 ﻿using ApplicationCore.Models;
 using ApplicationCore.ServiceInterfaces;
-using Infrastructure.Repositories;
-using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Logging;
 using MovieShopMVC.Models;
-using System;
 using System.Diagnostics;
 using System.Linq;
 
@@ -29,26 +25,26 @@ namespace MovieShopMVC.Controllers
             ViewBag.Method = _movieGenreService;
         }
 
-        public IActionResult Index(int Page = 1)
+        public IActionResult Index(int Page = 1,string Sort="default")
         {
             // by default it will look inside views folder => folder name with same name as
             // Controller name and look for view with same name as action method name
             // want to display top revenue movies
             // get model data
 
-            var movie = _movieService.GetAllMovies();
-            int itemNum = 30;
-            int totalItemNum = movie.Count();
-            var movies = movie.Skip((Page - 1) * itemNum).Take(itemNum);
-            var table = new TableViewModel
-            {
-                Genres = movies,
-                TotalItemNum = totalItemNum,
-                CurrentPage = Page
-            };
-
-
+            var table = _movieService.GetAllMovies(Page,Sort);
+            
             return View(table);
+        }
+
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
         }
 
         public IActionResult Privacy()

@@ -7,8 +7,8 @@ namespace ApplicationCore.ServiceInterfaces
 {
     public interface IMovieService
     {   // Models
-        IEnumerable<MovieCardResponseModel> Get30HighestMovies();
-        IEnumerable<MovieCardResponseModel> GetAllMovies();
+        IEnumerable<MovieCardResponseModel> GetSortByHighestMovies();
+        TableViewModel GetAllMovies(int Page=1,string Sort="defalut");
         IEnumerable<MovieCardByIdModel> GetCardByIdModels(int id);
     }
 }

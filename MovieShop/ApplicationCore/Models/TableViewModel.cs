@@ -13,5 +13,6 @@ namespace ApplicationCore.Models
         public IEnumerable<Trailer> Trailers { get; set; }
         public int TotalItemNum { get; set; }
         public int CurrentPage { get; set; }
+        public int GenreId { get; set; }
     }
 }

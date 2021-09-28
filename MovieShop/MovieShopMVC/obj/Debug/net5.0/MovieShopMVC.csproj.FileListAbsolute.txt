@@ -124,3 +124,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Vi
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MovieCard.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\GenreViews.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_testLayout.cshtml.g.cs

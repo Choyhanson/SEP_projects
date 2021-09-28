@@ -28,10 +28,15 @@ namespace Infrastructure.Repositories
                           join mg in _movieShopDbContext.MovieGenres
                           on m.Id equals mg.MovieId
                           where mg.GenreId == genreId
-                          select new MovieCardResponseModel{MovieId=m.Id,
-                                                            GenreId =mg.GenreId,
-                                                            MovieTitle=m.Title,
-                                                            MoviePosterUrl =m.PosterUrl,});
+                          select new MovieCardResponseModel
+                          {
+                              MovieId = m.Id,
+                              GenreId = mg.GenreId,
+                              MovieTitle = m.Title,
+                              MoviePosterUrl = m.PosterUrl,
+                              Revenue = m.Revenue
+                          });
+
             return movies;
         }
 

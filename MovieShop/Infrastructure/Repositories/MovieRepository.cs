@@ -15,17 +15,25 @@ namespace Infrastructure.Repositories
         {
             _movieShopDbContext = dbContext;
         }
-        public IEnumerable<Movie> Get30HighestGrossingMovies()
+        public IEnumerable<Movie> GetSortByGrossingMovies()
         {
             // go to database and get data using LINQ with EF
-            var movies = _movieShopDbContext.Movie.OrderByDescending(m => m.Revenue).Take(30).ToList();
+            var movies = _movieShopDbContext.Movie.OrderByDescending(m => m.Revenue).ToList();
             return movies;
         }
-        public IEnumerable<Movie> GetAllMovies()
+        public IEnumerable<MovieCardResponseModel> GetAllMovies()
         {
-            var movies = _movieShopDbContext.Movie.OrderBy(m => m.Title).ThenBy(m => m.Id).ToList();
-            //var movies = _movieShopDbContext.Movie.OrderBy(m => new { m.Title, m.Id }).ToList();
-            return movies;
+            var movies = _movieShopDbContext.Movie.OrderByDescending(m => m.Revenue).ThenBy(m => m.Title).ToList();
+            var moviesCardResponseModel = new List<MovieCardResponseModel>();
+
+            foreach (var item in movies)
+            {
+                moviesCardResponseModel.Add(new MovieCardResponseModel
+                { MovieId = item.Id, MoviePosterUrl = item.PosterUrl,
+                MovieTitle=item.Title,Revenue=item.Revenue});
+            }
+
+            return moviesCardResponseModel;
         }
 
         public IEnumerable<Movie> GetById(int id)

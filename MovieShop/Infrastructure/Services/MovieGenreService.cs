@@ -13,9 +13,11 @@ namespace Infrastructure.Services
     {
 
         private readonly IMovieGenreRepository _movieGenreRepository;
-        public MovieGenreService(IMovieGenreRepository movieGenreRepository)
+        private readonly IMovieRepository _movieRepository;
+        public MovieGenreService(IMovieGenreRepository movieGenreRepository, IMovieRepository movieRepository)
         {
             _movieGenreRepository = movieGenreRepository;
+            _movieRepository = movieRepository;
         }
 
         public IEnumerable<MovieCardResponseModel> GetAllGenres()
@@ -33,18 +35,28 @@ namespace Infrastructure.Services
             return movieGenreModels;
         }
 
-        //public TableViewModel GetAllMoviesByGenre(int genreId)
-        //{
-        //    var movies = _movieGenreRepository.GetAllMoviesByGenre(genreId);
-        //    var pages = movies.Count();
+        public IEnumerable<MovieCardResponseModel> SortDisplay( IEnumerable<MovieCardResponseModel> movieModel,string Sort = "default")
+        {
+            var movies = movieModel;
 
-        //    var movieGenreModels = new TableViewModel
-        //    {
-        //        Genres = movies,
-        //        Pages=pages
-        //    };
-        //    return movieGenreModels;
-        //}
+            IEnumerable<MovieCardResponseModel> res;
+            switch (Sort)
+            {
+                default:
+                    res = movies;
+                    break;
+                case "a-z":
+                    res = movies.OrderBy(m => m.MovieTitle);
+                    break;
+                case "z-a":
+                    res = movies.OrderByDescending(m => m.MovieTitle);
+                    break;
+                case "rating":
+                    res = movies.OrderByDescending(m => m.Rating);
+                    break;
+            }
+            return res;
+        }
 
         public IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId)
         {
@@ -60,5 +72,7 @@ namespace Infrastructure.Services
             }
             return movieGenreModels;
         }
+
+
     }
 }
