@@ -2,45 +2,31 @@
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MovieShopMVC.Controllers
 {
-    public class MoviesController : Controller
+    public class MoviesController : BaseController
     {
         //readonly type only could be modified in constructor
-        private readonly IMovieService _movieService;
-        private readonly IMovieGenreService _movieGenreService;
         private readonly IMovieGenreRepository _movieGenreRepository;
         private readonly IMovieRepository _movieRepository;
 
-        public MoviesController(IMovieService movieService, IMovieGenreService movieGenreService, IMovieRepository movieRepository, IMovieGenreRepository movieGenreRepository)
+        public MoviesController(IMovieService movieService, IMovieGenreService movieGenreService, IMovieRepository movieRepository, IMovieGenreRepository movieGenreRepository):
+            base(movieService, movieGenreService)
         {
-            _movieService = movieService;
-            _movieGenreService = movieGenreService;
             _movieRepository = movieRepository;
             _movieGenreRepository = movieGenreRepository;
-        }
-        public override void OnActionExecuted(ActionExecutedContext context)
-        {
-            base.OnActionExecuted(context);
-            ViewBag.Genres = _movieGenreService.GetAllGenres();
         }
 
         public IActionResult GetTopRevenueMovies()
         {
-            //var movieService = new MovieNoSQLService();
             var movies = _movieService.GetSortByHighestMovies();
             return View(movies);
         }
      
         public IActionResult Details(int id)
         {
-            //ViewBag.Genres = _movieGenreService.GetAllGenres();
-
             var movie = _movieService.GetCardByIdModels(id);
             var genre = _movieGenreService.GetGenreByMovieId(id);
             var rating = _movieRepository.GetMovieRating(id);

@@ -8,21 +8,10 @@ using System.Linq;
 
 namespace MovieShopMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly IMovieService _movieService;
-        private readonly IMovieGenreService _movieGenreService;
-        public HomeController(IMovieService movieService,IMovieGenreService movieGenreService)
+        public HomeController(IMovieService movieService, IMovieGenreService movieGenreService) : base(movieService, movieGenreService)
         {
-            _movieService = movieService;
-            _movieGenreService = movieGenreService;
-        }
-
-        public override void OnActionExecuted(ActionExecutedContext context)
-        {
-            base.OnActionExecuted(context);
-            ViewBag.Genres = _movieGenreService.GetAllGenres();
-            ViewBag.Method = _movieGenreService;
         }
 
         public IActionResult Index(int Page = 1,string Sort="default")
@@ -36,9 +25,6 @@ namespace MovieShopMVC.Controllers
             
             return View(table);
         }
-
-
-       
 
         public IActionResult Privacy()
         {
