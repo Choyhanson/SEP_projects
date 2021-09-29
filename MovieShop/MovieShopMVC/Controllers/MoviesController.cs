@@ -2,7 +2,6 @@
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace MovieShopMVC.Controllers
 {
@@ -45,20 +44,7 @@ namespace MovieShopMVC.Controllers
         }
         public IActionResult GenreViews(int id,int Page=1, string Sort="default")
         {
-            
-            var movieModel = _movieGenreService.SortDisplay(
-                _movieGenreRepository.GetAllMoviesByGenre(id),Sort);
-
-            int itemNum = 30;
-            int totalItemNum = movieModel.Count();
-            var movies = movieModel.Skip((Page - 1) * itemNum).Take(itemNum);
-            var table = new TableViewModel
-            {
-                Genres = movies,
-                TotalItemNum = totalItemNum,
-                CurrentPage=Page,
-                GenreId=id
-            };
+            var table = _movieGenreService.GetAllMoviesByGenre(id, Page, Sort);
 
             return View(table);
         }

@@ -56,6 +56,26 @@ namespace Infrastructure.Services
             return res;
         }
 
+
+        public TableViewModel GetAllMoviesByGenre(int id, int Page = 1, string Sort = "default")
+        {
+            var movieModel = SortDisplay(_movieGenreRepository.GetAllMoviesByGenre(id), Sort);
+
+            int itemNum = 30;
+            int totalItemNum = movieModel.Count();
+            var movies = movieModel.Skip((Page - 1) * itemNum).Take(itemNum);
+            var table = new TableViewModel
+            {
+                Genres = movies,
+                TotalItemNum = totalItemNum,
+                CurrentPage = Page,
+                GenreId = id
+            };
+
+            return table;
+        }
+
+
         public IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId)
         {
             var genres = _movieGenreRepository.GetGenreByMovieId(movieId);
@@ -70,7 +90,6 @@ namespace Infrastructure.Services
             }
             return movieGenreModels;
         }
-
 
     }
 }

@@ -9,5 +9,6 @@ namespace ApplicationCore.ServiceInterfaces
         IEnumerable<MovieCardResponseModel> GetAllGenres();
         IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId);
         IEnumerable<MovieCardResponseModel> SortDisplay(IEnumerable<MovieCardResponseModel>movieModel, string Sort = "default");
+        TableViewModel GetAllMoviesByGenre(int id, int Page = 1, string Sort = "default");
     }
 }
