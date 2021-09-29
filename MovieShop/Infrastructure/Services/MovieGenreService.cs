@@ -13,11 +13,9 @@ namespace Infrastructure.Services
     {
 
         private readonly IMovieGenreRepository _movieGenreRepository;
-        private readonly IMovieRepository _movieRepository;
-        public MovieGenreService(IMovieGenreRepository movieGenreRepository, IMovieRepository movieRepository)
+        public MovieGenreService(IMovieGenreRepository movieGenreRepository)
         {
             _movieGenreRepository = movieGenreRepository;
-            _movieRepository = movieRepository;
         }
 
         public IEnumerable<MovieCardResponseModel> GetAllGenres()
@@ -52,7 +50,7 @@ namespace Infrastructure.Services
                     res = movies.OrderByDescending(m => m.MovieTitle);
                     break;
                 case "rating":
-                    res = movies.OrderByDescending(m => m.Rating);
+                    res = movies.OrderByDescending(m => m.Rating).ThenByDescending(m => m.Revenue);
                     break;
             }
             return res;

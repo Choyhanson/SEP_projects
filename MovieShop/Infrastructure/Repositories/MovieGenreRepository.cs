@@ -11,10 +11,13 @@ namespace Infrastructure.Repositories
     public class MovieGenreRepository : IMovieGenreRepository
     {
         private readonly MovieShopDbContext _movieShopDbContext;
-        public MovieGenreRepository(MovieShopDbContext dbContext)
+        private readonly IMovieRepository _movieRepository;
+        public MovieGenreRepository(MovieShopDbContext dbContext, IMovieRepository movieRepository)
         {
-            _movieShopDbContext = dbContext;
+            _movieShopDbContext = dbContext; 
+            _movieRepository = movieRepository;
         }
+
 
         public IEnumerable<Genre> GetAllGenres()
         {
@@ -25,18 +28,33 @@ namespace Infrastructure.Repositories
         public IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId)
         {
             var movies = (from m in _movieShopDbContext.Movie
-                          join mg in _movieShopDbContext.MovieGenres
-                          on m.Id equals mg.MovieId
-                          where mg.GenreId == genreId
-                          select new MovieCardResponseModel
-                          {
-                              MovieId = m.Id,
-                              GenreId = mg.GenreId,
-                              MovieTitle = m.Title,
-                              MoviePosterUrl = m.PosterUrl,
-                              Revenue = m.Revenue
-                          });
+                            join mg in _movieShopDbContext.MovieGenres
+                            on m.Id equals mg.MovieId
+                            where mg.GenreId == genreId
+                            select new MovieCardResponseModel
+                            {
+                                MovieId = m.Id,
+                                GenreId = mg.GenreId,
+                                MovieTitle = m.Title,
+                                MoviePosterUrl = m.PosterUrl,
+                                Revenue = m.Revenue,
+                                Rating = _movieRepository.GetMovieRating(m.Id)
+                            });
 
+
+            //var table = new List<MovieCardResponseModel>();
+            //foreach (var m in movies)
+            //{
+            //    table.Add(new MovieCardResponseModel
+            //    {
+            //        MovieId = m.MovieId,
+            //        GenreId = m.GenreId,
+            //        MovieTitle = m.MovieTitle,
+            //        MoviePosterUrl = m.MoviePosterUrl,
+            //        Revenue = m.Revenue,
+            //        Rating = _movieRepository.GetMovieRating(m.MovieId)
+            //    });
+            //}
             return movies;
         }
 

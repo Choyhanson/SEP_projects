@@ -30,7 +30,8 @@ namespace Infrastructure.Repositories
             {
                 moviesCardResponseModel.Add(new MovieCardResponseModel
                 { MovieId = item.Id, MoviePosterUrl = item.PosterUrl,
-                MovieTitle=item.Title,Revenue=item.Revenue});
+                MovieTitle=item.Title,Revenue=item.Revenue,
+                Rating=GetMovieRating(item.Id)});
             }
 
             return moviesCardResponseModel;
