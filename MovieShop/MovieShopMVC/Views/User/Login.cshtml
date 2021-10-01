@@ -1,4 +1,5 @@
-﻿
+﻿@model ApplicationCore.Models.UserLoginRequestModel
+
 @{
     ViewData["Title"] = "Login Page";
 }
@@ -11,26 +12,26 @@
                 <div class="card" style="border-radius: 10px;">
                     <div class="card-body px-5 py-3">
                         <h2 class="text-uppercase text-left mb-4 font-weight-bold">Login</h2>
-                        <form>
+                        <form asp-action="Login">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-outline mb-3">
-                                <h5><label class="form-label mb-0" for="formEmail">Your Email</label></h5>
+                                <h5><label asp-for="Email"class="form-label mb-0" for="formEmail">Your Email</label></h5>
                                 <div class="input-group">
-                                    <input type="email" id="formEmail" class="pt-0 form-control form-control-lg">
+                                    <input asp-for="Email"type="email" id="formEmail" class="pt-0 form-control form-control-lg">
                                     <div class="input-group-append">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <span asp-validation-for="Email"class="input-group-text fas fa-envelope pt-3"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-outline mb-3">
-                                <h5><label class="form-label mb-0" for="formPswd">Password</label></h5>
+                                <h5><label asp-for="Password"class="form-label mb-0" for="formPswd">Password</label></h5>
                                 <div class="input-group">
-
-                                    <input type="password" id="formPswd" class="pt-0 form-control form-control-lg">
-                                    <div class="input-group-append"><span class="input-group-text"><i class="fas fa-lock"></i></span></div>
+                                    <input asp-for="Password"type="password" id="formPswd" class="pt-0 form-control form-control-lg">
+                                    <div class="input-group-append"><span asp-validation-for="Password"class="input-group-text fas fa-lock pt-3"></span></div>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="btn btn-info btn-block btn-lg gradient-custom-4 text-body">Log In</button>
+                                <button type="submit" class="btn btn-info btn-block btn-lg gradient-custom-4 text-body">Log In</button>
                             </div>
 
                             <p class="text-center text-muted mt-2 mb-0">No account yet? Please Sign Up <a class="fw-bold text-body" href="/User/Register"><u class="text-info">Register here</u></a></p>

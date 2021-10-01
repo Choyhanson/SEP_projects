@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.RepositoryInterfaces;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,10 @@ namespace Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> GetUserByEmail(string email)
+        public async  Task<User> GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            var user = await _movieShopDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+            return user;
         }
     }
 }

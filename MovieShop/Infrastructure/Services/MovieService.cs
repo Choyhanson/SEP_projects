@@ -21,7 +21,7 @@ namespace Infrastructure.Services
         
         public async Task< IEnumerable<MovieCardResponseModel>> GetSortByHighestMovies()
         {
-            var movies =await _movieRepository.ListAllAsync();  
+            var movies =await _movieRepository.ListAllAsync();
             movies = movies.Take(30);
             var moviesCardResponseModel = new List<MovieCardResponseModel>();
 
