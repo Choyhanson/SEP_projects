@@ -14,11 +14,13 @@ namespace MovieShopMVC.Controllers
             _movieGenreService = movieGenreService;
         }
 
-        public override void OnActionExecuted(ActionExecutedContext context)
+        public  override void OnActionExecuted(ActionExecutedContext context)
         {
-            base.OnActionExecuted(context);
-            ViewBag.Genres = _movieGenreService.GetAllGenres();
             ViewBag.Method = _movieGenreService;
+            ViewBag.Genres = _movieGenreService.GetAllGenres();
+            base.OnActionExecuted(context);
+            
+
         }
     }
 }

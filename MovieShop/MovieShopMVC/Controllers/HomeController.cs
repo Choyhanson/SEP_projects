@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using MovieShopMVC.Models;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MovieShopMVC.Controllers
 {
@@ -14,15 +15,17 @@ namespace MovieShopMVC.Controllers
         {
         }
 
-        public IActionResult Index(int Page = 1,string Sort="default")
+        public  IActionResult Index(int Page = 1,string Sort="default")
         {
             // by default it will look inside views folder => folder name with same name as
             // Controller name and look for view with same name as action method name
             // want to display top revenue movies
             // get model data
 
-            var table = _movieService.GetAllMovies(Page,Sort);
-            
+            var table = _movieService.GetAllMovies(Page, Sort);
+            //var table = _movieService.GetAllMoviesAsync(Page, Sort);
+
+
             return View(table);
         }
 
@@ -31,10 +34,10 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
-        public IActionResult Test()
+        public async Task<IActionResult> Test()
         {
             
-            var genres = _movieGenreService.GetAllGenres();
+            var genres = await _movieService.GetSortByHighestMovies();
 
             
             return View(genres);

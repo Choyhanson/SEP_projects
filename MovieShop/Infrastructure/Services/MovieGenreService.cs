@@ -1,10 +1,8 @@
 ﻿using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Services
@@ -26,14 +24,33 @@ namespace Infrastructure.Services
             {
                 movieGenreModels.Add(new MovieCardResponseModel
                 {
-                    GenreId=item.Id,
-                    GenreName=item.Name
+                    GenreId = item.Id,
+                    GenreName = item.Name
                 });
             }
+
             return movieGenreModels;
+
         }
 
-        public IEnumerable<MovieCardResponseModel> SortDisplay( IEnumerable<MovieCardResponseModel> movieModel,string Sort = "default")
+        //public async Task<IEnumerable<MovieCardResponseModel>> GetAllGenresAsync()
+        //{
+        //    var genres =await _movieGenreRepository.GetAllGenresAsync();
+        //    var movieGenreModels = new List<MovieCardResponseModel>();
+        //    foreach (var item in genres)
+        //    {
+        //        movieGenreModels.Add(new MovieCardResponseModel
+        //        {
+        //            GenreId = item.Id,
+        //            GenreName = item.Name
+        //        });
+        //    }
+
+        //    return movieGenreModels;
+
+        //}
+
+        public  IEnumerable<MovieCardResponseModel> SortDisplay( IEnumerable<MovieCardResponseModel> movieModel,string Sort = "default")
         {
             var movies = movieModel;
 
@@ -59,7 +76,9 @@ namespace Infrastructure.Services
 
         public TableViewModel GetAllMoviesByGenre(int id, int Page = 1, string Sort = "default")
         {
-            var movieModel = SortDisplay(_movieGenreRepository.GetAllMoviesByGenre(id), Sort);
+            //var movie =  await _movieGenreRepository.GetAllMoviesByGenreAsync(id);
+            var movie =  _movieGenreRepository.GetAllMoviesByGenre(id);
+            var movieModel =  SortDisplay(movie,Sort);
 
             int itemNum = 30;
             int totalItemNum = movieModel.Count();
@@ -79,6 +98,21 @@ namespace Infrastructure.Services
         public IEnumerable<MovieCardResponseModel> GetGenreByMovieId(int movieId)
         {
             var genres = _movieGenreRepository.GetGenreByMovieId(movieId);
+            var movieGenreModels = new List<MovieCardResponseModel>();
+            foreach (var item in genres)
+            {   
+                movieGenreModels.Add(new MovieCardResponseModel
+                {
+                    GenreId = item.Id,
+                    GenreName = item.Name
+                });
+            }
+            return movieGenreModels;
+        }
+
+        public async Task< IEnumerable<MovieCardResponseModel> >GetGenreByMovieIdAsync(int movieId)
+        {
+            var genres =await _movieGenreRepository.GetGenreByMovieIdAsync(movieId);
             var movieGenreModels = new List<MovieCardResponseModel>();
             foreach (var item in genres)
             {
