@@ -60,16 +60,15 @@ namespace Infrastructure.Services
 
         public async Task RemoveFavoriteMovie(int userId, int movieId)
         {
-            var Id = _movieShopDbContext.Favorites.Where(x => x.MovieId == movieId && x.UserId == userId).Select(x => x.Id).FirstOrDefault();
-            var entity = await GetByIdAsync(Id);
-            var removeFavorite = new Favorite
-            {
-                Id = entity.Id,
-                UserId = userId,
-                MovieId = movieId
-            };
-            await DeleteAsync(removeFavorite);
-            
+            var res = _movieShopDbContext.Favorites.Where(x => x.MovieId == movieId && x.UserId == userId).FirstOrDefault();
+
+            //var removeFavorite = new Favorite
+            //{
+            //    UserId = userId,
+            //    MovieId = movieId
+            //};
+            await DeleteAsync(res);
+
         }
     }
 }
