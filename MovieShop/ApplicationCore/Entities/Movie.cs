@@ -41,5 +41,6 @@ namespace ApplicationCore.Entities
         public ICollection<Purchase> Users { get; set; }
         public ICollection<Review> UserReview { get; set; }
         public ICollection<Favorite> UserFavorite { get; set; }
+
     }
 }

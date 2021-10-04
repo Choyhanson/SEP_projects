@@ -33,22 +33,22 @@ namespace Infrastructure.Services
 
         }
 
-        //public async Task<IEnumerable<MovieCardResponseModel>> GetAllGenresAsync()
-        //{
-        //    var genres =await _movieGenreRepository.GetAllGenresAsync();
-        //    var movieGenreModels = new List<MovieCardResponseModel>();
-        //    foreach (var item in genres)
-        //    {
-        //        movieGenreModels.Add(new MovieCardResponseModel
-        //        {
-        //            GenreId = item.Id,
-        //            GenreName = item.Name
-        //        });
-        //    }
+        public async Task<IEnumerable<MovieCardResponseModel>> GetAllGenresAsync()
+        {
+            var genres = await _movieGenreRepository.GetAllGenresAsync();
+            var movieGenreModels = new List<MovieCardResponseModel>();
+            foreach (var item in genres)
+            {
+                movieGenreModels.Add(new MovieCardResponseModel
+                {
+                    GenreId = item.Id,
+                    GenreName = item.Name
+                });
+            }
 
-        //    return movieGenreModels;
+            return movieGenreModels;
 
-        //}
+        }
 
         public  IEnumerable<MovieCardResponseModel> SortDisplay( IEnumerable<MovieCardResponseModel> movieModel,string Sort = "default")
         {
@@ -76,7 +76,6 @@ namespace Infrastructure.Services
 
         public TableViewModel GetAllMoviesByGenre(int id, int Page = 1, string Sort = "default")
         {
-            //var movie =  await _movieGenreRepository.GetAllMoviesByGenreAsync(id);
             var movie =  _movieGenreRepository.GetAllMoviesByGenre(id);
             var movieModel =  SortDisplay(movie,Sort);
 
@@ -90,7 +89,24 @@ namespace Infrastructure.Services
                 CurrentPage = Page,
                 GenreId = id
             };
+            return table;
+        }
 
+        public async Task< TableViewModel >GetAllMoviesByGenreAsync(int id, int Page = 1, string Sort = "default")
+        {
+            var movie = await _movieGenreRepository.GetAllMoviesByGenreAsync(id);
+            var movieModel = SortDisplay(movie, Sort);
+
+            int itemNum = 30;
+            int totalItemNum = movieModel.Count();
+            var movies = movieModel.Skip((Page - 1) * itemNum).Take(itemNum);
+            var table = new TableViewModel
+            {
+                Genres = movies,
+                TotalItemNum = totalItemNum,
+                CurrentPage = Page,
+                GenreId = id
+            };
             return table;
         }
 

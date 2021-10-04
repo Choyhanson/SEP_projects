@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Threading.Tasks;
 
 namespace MovieShopMVC.Controllers
 {
@@ -14,13 +15,20 @@ namespace MovieShopMVC.Controllers
             _movieGenreService = movieGenreService;
         }
 
-        public  override void OnActionExecuted(ActionExecutedContext context)
+        //public override void OnActionExecuted(ActionExecutedContext context)
+        //{
+        //    ViewBag.Method = _movieGenreService;
+        //    ViewBag.Genres = _movieGenreService.GetAllGenres();
+        //    base.OnActionExecuted(context);
+
+
+        //}
+
+        public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             ViewBag.Method = _movieGenreService;
-            ViewBag.Genres = _movieGenreService.GetAllGenres();
-            base.OnActionExecuted(context);
-            
-
+            ViewBag.Genres = await _movieGenreService.GetAllGenresAsync();
+            await base.OnActionExecutionAsync(context, next);
         }
     }
 }

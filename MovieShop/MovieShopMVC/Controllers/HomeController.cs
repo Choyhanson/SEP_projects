@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Models;
+using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -11,19 +12,19 @@ namespace MovieShopMVC.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(IMovieService movieService, IMovieGenreService movieGenreService) : base(movieService, movieGenreService)
+        public HomeController(IMovieService movieService, IMovieGenreService movieGenreService, IMovieRepository movieRepository) : base(movieService, movieGenreService)
         {
         }
 
-        public  IActionResult Index(int Page = 1,string Sort="default")
+        public async Task< IActionResult >Index(int Page = 1,string Sort="default")
         {
             // by default it will look inside views folder => folder name with same name as
             // Controller name and look for view with same name as action method name
             // want to display top revenue movies
             // get model data
 
-            var table = _movieService.GetAllMovies(Page, Sort);
-            //var table = _movieService.GetAllMoviesAsync(Page, Sort);
+            //var table = _movieService.GetAllMovies(Page, Sort);
+            var table =await _movieService.GetAllMoviesAsync(Page, Sort);
 
 
             return View(table);
@@ -38,7 +39,6 @@ namespace MovieShopMVC.Controllers
         {
             
             var genres = await _movieService.GetSortByHighestMovies();
-
             
             return View(genres);
         }

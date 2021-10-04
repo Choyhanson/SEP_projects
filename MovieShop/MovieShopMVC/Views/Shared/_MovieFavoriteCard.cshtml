@@ -1,0 +1,9 @@
+﻿@model ApplicationCore.Models.MovieFavoriteResponseModel
+
+<div class="card mb-4 shadow">
+    <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MovieId">
+        <img src="@Model.MoviePosterUrl" class="img-fluid position-relative" alt="@Model.MovieId" />
+    </a>
+    
+</div>
+

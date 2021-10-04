@@ -30,17 +30,14 @@
                             <div class="dropdown-menu" aria-labelledby="genreMenu">
                                 @foreach (var item in ViewBag.Genres)
                                 {
-                                    <a class="dropdown-item" asp-controller="Movies" asp-action="GenreViews" asp-route-id="@item.GenreId" >@item.GenreName</a>
+                                    <a class="dropdown-item position-relative" asp-controller="Movies" asp-action="GenreViews" asp-route-id="@item.GenreId" >@item.GenreName</a>
                                 }
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <h3><a class="btn btn-dark border-white rounded-pill mr-3 " asp-controller="User" asp-action="Login" type="button">Login</a></h3>
-                        <h3><a class="btn btn-dark border-white rounded-pill mr-1 " asp-controller="User" asp-action="Register" type="button">Register</a></h3>
-                    </div>
                 </div>
             </div>
+            <partial name="_LoginPartial" />
         </nav>
     </header>
     <div class="container-fluid " style="margin-top:5%;">

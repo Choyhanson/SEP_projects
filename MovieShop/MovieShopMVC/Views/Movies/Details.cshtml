@@ -1,5 +1,8 @@
 ﻿@model ApplicationCore.Models.TableViewModel
-
+@using ApplicationCore.ServiceInterfaces
+@inject ICurrentUserService _userService
+@inject IPurchaseService _userPurchaseService
+@inject IFavoriteService _movieFavoriteService
 @{
     ViewData["Title"] = "Movie Details";
 }
@@ -35,54 +38,92 @@
                 </div>
                 <div class="col-sm ">
                     <div class="row justify-content-end m-lg-3">
-                        <button type="button" class="btn btn-dark btn-lg " style="width:150px;">
+                        <button type="button" class="btn btn-dark btn-lg " style="width:175px;">
                             <i class="bi bi-pencil-square"></i>
                             REVIEW
                         </button>
                     </div>
-                    <div class="row justify-content-end m-lg-3"><button type="button" class="btn btn-light btn-lg "  style="width:150px;">BUY $@item.Price </button></div>
+                    <div class="row justify-content-end m-lg-3">
+                        @if (_userService.IsAuthenticated)
+                        {
+                            @if (await _userPurchaseService.IsMoviePurchased(_userService.UserId, item.Id))
+                            {
+                                <a type="button" class="btn btn-light btn-lg " href=@item.ImdbUrl style="width:175px;">
+                                    WATCH
+                                </a>
+                            }
+                            else
+                            {
+                                <a type="button submit" class="btn btn-light btn-lg " asp-controller="User" asp-action="PurchaseAction" asp-route-movieId="@item.Id" asp-route-price="@item.Price" style="width:175px;">
+                                    BUY $@item.Price
+                                </a>
+                            }
+                        }
+                        else
+                        {
+                            <a type="button" class="btn btn-light btn-lg " asp-controller="Account" asp-action="Login" style="width:175px;">
+                                BUY $@item.Price
+                            </a>
+                        }
+                        @if (_userService.IsAuthenticated)
+                        {
+                            @if (await _movieFavoriteService.IsFavoritedMovie(_userService.UserId, item.Id))
+                            {
+                                <a type="button submit" class="btn btn-light btn-lg px-0 mt-3" asp-controller="User" asp-action="RemoveFavorite" asp-route-movieId="@item.Id" style="width:175px;">
+                                    <i class="bi bi-star-fill"></i> RemoveFavorite
+                                </a>
+                            }
+                            else
+                            {
+                                <a type="button submit" class="btn btn-light btn-lg px-0 mt-3" asp-controller="User" asp-action="AddFavorite" asp-route-movieId="@item.Id" style="width:175px;">
+                                    <i class="bi bi-star"></i> AddFavorite
+                                </a>
+                            }
+                        }
+                    </div>
+
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col-sm-4 bg-light">
-                    <div >
-                         <h4 class="mt-2"><strong>MOVIE FACT</strong></h4>
-                            <ul class="list-group list-group-flush ">
-                                <li class="list-group-item bg-light">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    Release Date  <span class="badge badge-dark badge-pill">@item.Date</span>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <i class="bi bi-hourglass-split"></i>
-                                    Run Time  <span class="badge badge-dark badge-pill">@item.RunTime m</span>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <i class="bi bi-cash-coin"></i>
-                                    Box Office  <span class="badge badge-dark badge-pill">@item.Revenue</span>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <i class="bi bi-currency-dollar"></i>
-                                    Budget  <span class="badge badge-dark badge-pill">@item.Budget</span>
-                                </li>
-                                <li class="list-group-item bg-light">
-                                    <i class="fa fa-imdb"></i>
-                                    <a href=@item.ImdbUrl style="text-decoration:none;color:black;"><i class="fa fa-share-square-o"></i></a>
-                                </li>
-                            </ul>
+                    <div>
+                        <h4 class="mt-2"><strong>MOVIE FACT</strong></h4>
+                        <ul class="list-group list-group-flush ">
+                            <li class="list-group-item bg-light">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                Release Date  <span class="badge badge-dark badge-pill">@item.Date</span>
+                            </li>
+                            <li class="list-group-item bg-light">
+                                <i class="bi bi-hourglass-split"></i>
+                                Run Time  <span class="badge badge-dark badge-pill">@item.RunTime m</span>
+                            </li>
+                            <li class="list-group-item bg-light">
+                                <i class="bi bi-cash-coin"></i>
+                                Box Office  <span class="badge badge-dark badge-pill">@item.Revenue</span>
+                            </li>
+                            <li class="list-group-item bg-light">
+                                <i class="bi bi-currency-dollar"></i>
+                                Budget  <span class="badge badge-dark badge-pill">@item.Budget</span>
+                            </li>
+                            <li class="list-group-item bg-light">
+                                <i class="fa fa-imdb"></i>
+                                <a href=@item.ImdbUrl style="text-decoration:none;color:black;"><i class="fa fa-share-square-o"></i></a>
+                            </li>
+                        </ul>
                     </div>
                     <br />
                     <div>
                         <h4 class="mt-1"><strong>TRAILERS</strong></h4>
-                            <ul class="list-group list-group-flush ">
-                                @foreach (var trailer in Model.Trailers)
-                                {
+                        <ul class="list-group list-group-flush ">
+                            @foreach (var trailer in Model.Trailers)
+                            {
                                 <li class="list-group-item bg-light ">
                                     <i class="bi bi-play-btn-fill"></i>&emsp;
                                     <a href="@trailer.TrailerUrl" style="text-decoration:none;color:black;">@trailer.Name</a>
                                 </li>
-                                }
+                            }
 
-                            </ul>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-sm-1"></div>
@@ -91,17 +132,17 @@
                     <ul class="list-group list-group-flush">
                         @foreach (var cast in Model.Casts)
                         {
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <a href="@cast.TmdbUrl">
-                                        <img src="@cast.ProfilePath" alt="Profile Link" class="rounded-circle" style="width:40px;height:60px;">
-                                    </a>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <a href="@cast.TmdbUrl">
+                                            <img src="@cast.ProfilePath" alt="Profile Link" class="rounded-circle" style="width:40px;height:60px;">
+                                        </a>
+                                    </div>
+                                    <div class="col-sm">@cast.Name</div>
+                                    <div class="col-sm">@cast.Character</div>
                                 </div>
-                                <div class="col-sm">@cast.Name</div>
-                                <div class="col-sm">@cast.Character</div>
-                            </div>
-                        </li>
+                            </li>
                         }
                     </ul>
                 </div>

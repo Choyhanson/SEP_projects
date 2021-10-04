@@ -24,9 +24,10 @@ namespace MovieShopMVC.Controllers
             var table =await  _movieService.GetMovieDetailAsync(id);
             return View(table);
         }
-        public IActionResult GenreViews(int id,int Page=1, string Sort="default")
+        public async Task <IActionResult >GenreViews(int id,int Page=1, string Sort="default")
         {
-            var table =  _movieGenreService.GetAllMoviesByGenre(id, Page, Sort);
+            //var table =  _movieGenreService.GetAllMoviesByGenre(id, Page, Sort);
+            var table = await _movieGenreService.GetAllMoviesByGenreAsync(id, Page, Sort);
 
             return View(table);
         }

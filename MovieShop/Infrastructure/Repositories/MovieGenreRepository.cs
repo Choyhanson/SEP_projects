@@ -25,11 +25,11 @@ namespace Infrastructure.Repositories
             return  genres;
         }
 
-        //public async Task< IEnumerable<Genre> >GetAllGenresAsync()
-        //{
-        //    var genres = _movieShopDbContext.Genres;
-        //    return await genres.ToListAsync();
-        //}
+        public async Task<IEnumerable<Genre>> GetAllGenresAsync()
+        {
+            var genres = _movieShopDbContext.Genres;
+            return await genres.ToListAsync();
+        }
 
         public  IEnumerable<MovieCardResponseModel> GetAllMoviesByGenre(int genreId)
         {

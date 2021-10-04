@@ -205,3 +205,8 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsof
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MoviePurchasedCard.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchases.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Favorites.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MovieFavoriteCard.cshtml.g.cs
