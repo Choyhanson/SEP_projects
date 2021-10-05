@@ -1,0 +1,60 @@
+﻿@model ApplicationCore.Models.UserEditRequestModel
+@using ApplicationCore.ServiceInterfaces
+@inject ICurrentUserService _currentUserService
+
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<script src="
+https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+<div class="mask d-flex align-items-center h-100 gradient-custom-3 bg-light" style="height:600px;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-body px-5 py-3">
+                        <h2 class="text-uppercase text-left mb-4 font-weight-bold">User Info</h2>
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-outline mb-2" >
+                                <h6><label asp-for="FirstName" class="mb-0 form-label">Your First Name</label></h6>
+                                <div class="input-group">
+                                    <input label asp-for="FirstName" type="text" id="FirstName" class="pt-0 form-control form-control-lg" value="@_currentUserService.FirstName">
+                                    <div class="input-group-append"><span asp-validation-for="FirstName" class="input-group-text fas fa-user pt-3"></span></div>
+                                </div>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <h6><label asp-for="LastName" class="form-label mb-0" for="formLastName">Your Last Name</label></h6>
+                                <div class="input-group">
+                                    <input asp-for="LastName" type="text" id="formLastName" class="pt-0 form-control form-control-lg" value="@_currentUserService.LastName">
+                                    <div class="input-group-append"><span asp-validation-for="LastName" class="input-group-text fas fa-user pt-3"></span></div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-2">
+                                <h6><label asp-for="Email" class="form-label mb-0" for="formEmail">Your Email</label></h6>
+                                <div class="input-group">
+                                    <input asp-for="Email" type="text" id="formEmail" class="pt-0 form-control form-control-lg"value="@_currentUserService.Email">
+                                    <div class="input-group-append"><span asp-validation-for="Email" class="input-group-text fas fa-envelope pt-3"></span></div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Complete Edit</button>
+                            </div>
+
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

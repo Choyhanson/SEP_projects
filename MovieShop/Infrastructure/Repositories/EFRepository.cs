@@ -53,10 +53,21 @@ namespace Infrastructure.Repositories
             return entity;
         }
 
-        public async Task<T> UpdateAsync(T entity)
+        public virtual async Task<T> UpdateAsync(T entity)
         {
-            _movieShopDbContext.Entry(entity).State = EntityState.Modified;
-            await _movieShopDbContext.SaveChangesAsync();
+            try
+            {
+                _movieShopDbContext.Entry(entity).State = EntityState.Modified;
+                await _movieShopDbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+
+                ex.Entries.Single().Reload();
+
+                await _movieShopDbContext.SaveChangesAsync();
+            }
+            
             return entity;
         }
 

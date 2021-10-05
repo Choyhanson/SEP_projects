@@ -11,5 +11,6 @@ namespace ApplicationCore.RepositoryInterfaces
     {
         Task<User> GetUserByEmail(string email);
 
+        IEnumerable<User> GetUserByEmailNoTracking(string email);
     }
 }

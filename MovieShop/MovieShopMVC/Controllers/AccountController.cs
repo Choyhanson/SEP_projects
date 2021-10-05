@@ -44,7 +44,10 @@ namespace MovieShopMVC.Controllers
             var user =await _userService.ValidateUser(model.Email, model.Password);
 
             // we need cookie based authetication
-
+            if (user==null)
+            {
+                return RedirectToAction("Login");
+            }
 
             var claims = new List<Claim>
             {

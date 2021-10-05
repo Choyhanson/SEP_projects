@@ -5,6 +5,7 @@ using ApplicationCore.Entities;
 using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 namespace Infrastructure.Services
 {
@@ -104,5 +105,17 @@ namespace Infrastructure.Services
             return hashed;
         }
 
+        public async Task EditUser(UserEditRequestModel requestModel)
+        {
+
+            var modify = new User
+            {
+                Id=requestModel.Id,
+                Email = requestModel.Email,
+                FirstName = requestModel.FirstName,
+                LastName = requestModel.LastName,
+            };
+            var editedUser = await _userRepository.UpdateAsync(modify);
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using ApplicationCore.RepositoryInterfaces;
 
 namespace MovieShopMVC.Controllers
 {
@@ -73,8 +74,9 @@ namespace MovieShopMVC.Controllers
         {
             var userId = _currentUserService.UserId;
             var favorites = await _movieFavoriteService.AddFavoriteMovie(userId,movieId);
+            TempData["MovieId"] = movieId;
             // call the User Service to get movies Favorited by user, and send the data to the view, and use the existing MovieCard partial View
-            return RedirectToAction("Favorites");
+            return RedirectToAction("Details","Movies");
         }
 
         [HttpGet]
@@ -83,14 +85,14 @@ namespace MovieShopMVC.Controllers
         {
             var userId = _currentUserService.UserId;
             await _movieFavoriteService.RemoveFavoriteMovie(userId,movieId);
-
+            TempData["MovieId"] = movieId;
             // call the User Service to get movies Favorited by user, and send the data to the view, and use the existing MovieCard partial View
-            return RedirectToAction("Favorites");
+            return RedirectToAction("Details", "Movies");
         }
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> UserDetails()
         {
             // call the User Service to get User Details and display in a View
             // get user id from httpcontext and send it to user services
@@ -112,7 +114,9 @@ namespace MovieShopMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(UserEditRequestModel model)
         {
-            return View();
+            model.Id = _currentUserService.UserId;
+            await _userService.EditUser(model);
+            return LocalRedirect("~/");
         }
 
     }

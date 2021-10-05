@@ -28,5 +28,18 @@ namespace Infrastructure.Repositories
             var user = await _movieShopDbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
             return user;
         }
+
+        public IEnumerable<User> GetUserByEmailNoTracking(string email)
+        {
+            var user = _movieShopDbContext.Users.Where(u => u.Email == email).AsNoTracking();
+            return user;
+        }
+        public override async Task<User> UpdateAsync(User entity)
+        {
+            _movieShopDbContext.Entry(entity).State = EntityState.Modified;
+            await _movieShopDbContext.SaveChangesAsync();
+
+            return entity;
+        }
     }
 }

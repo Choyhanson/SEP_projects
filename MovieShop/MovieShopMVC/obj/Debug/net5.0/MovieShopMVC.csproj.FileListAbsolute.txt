@@ -125,8 +125,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Vi
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Movies\GenreViews.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_testLayout.cshtml.g.cs
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Login.cshtml.g.cs
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Register.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -210,3 +208,4 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Vi
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchases.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Favorites.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MovieFavoriteCard.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\UserDetails.cshtml.g.cs

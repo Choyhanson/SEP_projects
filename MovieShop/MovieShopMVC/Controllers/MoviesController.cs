@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace MovieShopMVC.Controllers
@@ -21,8 +22,17 @@ namespace MovieShopMVC.Controllers
      
         public async Task< IActionResult >Details(int id)
         {
-            var table =await  _movieService.GetMovieDetailAsync(id);
-            return View(table);
+            if (TempData["MovieId"]!=null)
+            {
+                var table = await _movieService.GetMovieDetailAsync(Convert.ToInt32( TempData["MovieId"]));
+                TempData["MovieId"] = null;
+                return View(table);
+            }
+            else
+            { 
+                var table = await _movieService.GetMovieDetailAsync(id);
+                return View(table);
+            }
         }
         public async Task <IActionResult >GenreViews(int id,int Page=1, string Sort="default")
         {
