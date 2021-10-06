@@ -107,13 +107,15 @@ namespace Infrastructure.Services
 
         public async Task EditUser(UserEditRequestModel requestModel)
         {
-
+            //var user = await _userRepository.GetByIdAsync(requestModel.Id);
             var modify = new User
             {
                 Id=requestModel.Id,
                 Email = requestModel.Email,
                 FirstName = requestModel.FirstName,
                 LastName = requestModel.LastName,
+                //DateOfBirth=user.DateOfBirth,
+                //HashedPassword=user.HashedPassword
             };
             var editedUser = await _userRepository.UpdateAsync(modify);
         }
