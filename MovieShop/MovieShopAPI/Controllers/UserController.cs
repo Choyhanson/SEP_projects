@@ -28,16 +28,47 @@ namespace MovieShopAPI.Controllers
         }
 
         [Route("purchases")]
-        //[Authorize]
         [HttpGet]
-        public async Task<IActionResult> Purchases()
+        public async Task<IActionResult> Purchases(int userId)
         {
-            var userId = _currentUserService.UserId;
-            var purchases = await _purchaseService.GetAllPurchasedMoviesByUserId(49826);
-            //var purchases = await _purchaseService.GetAllPurchasedMoviesByUserId(userId);
+            //var userId = _currentUserService.UserId;
+            var purchases = await _purchaseService.GetAllPurchasedMoviesByUserId(userId);
 
             // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
             return Ok(purchases);
+        }
+
+        [Route("favorites")]
+        [HttpGet]
+        public async Task<IActionResult> Favorites(int userId)
+        {
+            //var userId = _currentUserService.UserId;
+            var purchases = await _movieFavoriteService.GetAllFavoriteMoviesByUserId(userId);
+
+            // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
+            return Ok(purchases);
+        }
+
+        [Route("addfavorites")]
+        [HttpPost]
+        public async Task<IActionResult> AddFavorite(int userId, int movieId)
+        {
+            //var userId = _currentUserService.UserId;
+            var favorite = await _movieFavoriteService.AddFavoriteMovie(userId, movieId);
+
+            // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
+            return Ok(favorite);
+        }
+
+        [Route("removefavorites")]
+        [HttpDelete]
+        public async Task<IActionResult> RemoveFavorite(int userId, int movieId)
+        {
+            //var userId = _currentUserService.UserId;
+            await _movieFavoriteService.RemoveFavoriteMovie(userId, movieId);
+
+            // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
+            return Ok("Removed!");
         }
     }
 }

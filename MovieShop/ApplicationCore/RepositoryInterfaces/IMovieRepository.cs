@@ -17,7 +17,8 @@ namespace ApplicationCore.RepositoryInterfaces
         Task<Decimal?> GetMovieRatingAsync(int id);
         IEnumerable<MovieCastModel> GetCastByMovie(int id);
         Task<IEnumerable<MovieCastModel>> GetCastByMovieAsync(int id);
-        Task<IEnumerable<Trailer>> GetTrailerByMovieAsync(int id);
+        //Task<IEnumerable<Trailer>> GetTrailerByMovieAsync(int id);
+        Task<IEnumerable<MovieTrailerResponseModel>> GetTrailerByMovieAsync(int id);
         IEnumerable<Trailer> GetTrailerByMovie(int id);
 
     }

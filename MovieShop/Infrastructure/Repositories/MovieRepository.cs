@@ -137,9 +137,15 @@ namespace Infrastructure.Repositories
             return trailers;
         }
 
-        public async Task<IEnumerable<Trailer>> GetTrailerByMovieAsync(int id)
+        public async Task<IEnumerable<MovieTrailerResponseModel>> GetTrailerByMovieAsync(int id)
         {
-            var trailers = await _movieShopDbContext.Trailers.Where(t => t.MovieId == id).ToListAsync();
+            var trailers = await _movieShopDbContext.Trailers.Where(t => t.MovieId == id)
+                .Select(x => new MovieTrailerResponseModel {
+                        MovieId=x.MovieId,
+                        Id=x.Id,
+                        Name=x.Name,
+                        TrailerUrl=x.TrailerUrl
+            }).ToListAsync();
             return trailers;
         }
 

@@ -146,7 +146,7 @@ namespace Infrastructure.Services
                 Genres = genre,
                 Rating = rating,
                 Casts = casts,
-                Trailers = trailers
+                Trailer = trailers
             };
             return table;
         }

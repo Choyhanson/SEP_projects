@@ -10,7 +10,9 @@ namespace ApplicationCore.Models
         public IEnumerable<MovieCardResponseModel> Genres { get; set; }
         public decimal? Rating { get; set; }
         public IEnumerable<MovieCastModel> Casts { get; set; }
-        public IEnumerable<Trailer> Trailers { get; set; }
+        //[System.Text.Json.Serialization.JsonIgnore]
+        public IEnumerable<MovieTrailerResponseModel> Trailers { get; set; }
+        public IEnumerable<Trailer> Trailer { get; set; }
         public int TotalItemNum { get; set; }
         public int CurrentPage { get; set; }
         public int GenreId { get; set; }
