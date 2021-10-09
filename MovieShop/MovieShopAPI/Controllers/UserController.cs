@@ -27,11 +27,12 @@ namespace MovieShopAPI.Controllers
             _movieFavoriteService = movieFavoriteService;
         }
 
+        [Authorize]
         [Route("purchases")]
         [HttpGet]
-        public async Task<IActionResult> Purchases(int userId)
+        public async Task<IActionResult> Purchases()
         {
-            //var userId = _currentUserService.UserId;
+            var userId = _currentUserService.UserId;
             var purchases = await _purchaseService.GetAllPurchasedMoviesByUserId(userId);
 
             // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View

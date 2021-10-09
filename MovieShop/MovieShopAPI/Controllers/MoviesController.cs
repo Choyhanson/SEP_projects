@@ -48,7 +48,8 @@ namespace MovieShopAPI.Controllers
             var movie = await _movieService.GetMovieDetailAsync(id);
             return Ok(movie);
         }
-        [Route("genre")]
+
+        [Route("genre/{genreId:int}",Name= "GetAllMoviesByGenre")]
         [HttpGet]
         public async Task<IActionResult> GenreViews(int genreId, int Page=1, string Sort = "default")
         {

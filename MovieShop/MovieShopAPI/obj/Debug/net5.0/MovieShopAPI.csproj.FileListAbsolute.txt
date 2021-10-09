@@ -22,7 +22,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsof
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -63,3 +62,5 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\ref\MovieShopAPI.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.pdb
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.genruntimeconfig.cache
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\libman.json

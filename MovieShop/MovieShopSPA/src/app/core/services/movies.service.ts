@@ -19,8 +19,8 @@ export class MoviesService {
     // Always Angular services return Observables
 
     // return this.http.get<MovieCard[]>('https://localhost:44354/api/Movies/toprevenue');
-    return this.http.get<MovieCard[]>(`${environment.apiUrl}movies/toprevenue`);
     // return this.http.get('https://localhost:44354/api/Movies/toprevenue').pipe(map(resp => resp as MovieCard[]));
+    return this.http.get<MovieCard[]>(`${environment.apiUrl}movies/toprevenue`);
 
     // rxjs as js LINQ
     // map in JS RXJS => Select
