@@ -11,8 +11,9 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
+  private _headers = new HttpHeaders().append('responseType','json');
+
   constructor(private http:HttpClient) { 
-    
   }
 
   getUserPurchases():Observable<Purchase[]>{
@@ -29,9 +30,7 @@ export class UserService {
     }));
   }
   addPurchase(movieId:number,price:number):Observable<boolean>{
-    let headers= new HttpHeaders();
-    headers.append('responseType','json');
-    return this.http.post(`${environment.apiUrl}user/addPurchase/${movieId}/${price}`,{headers:headers})
+    return this.http.post(`${environment.apiUrl}user/addPurchase/${movieId}/${price}`,{headers:this._headers})
     .pipe(map((response:any )=>{
       if(response.res){
         return true;
@@ -49,9 +48,7 @@ export class UserService {
   }
 
   addFavorite(movieId:number):Observable<boolean>{
-    let headers= new HttpHeaders();
-    headers.append('responseType','json');
-    return this.http.post(`${environment.apiUrl}user/addFavorite/${movieId}`,{headers:headers})
+    return this.http.post(`${environment.apiUrl}user/addFavorite/${movieId}`,{headers:this._headers})
     .pipe(map((response:any)=>{
       if(response.favorite){
         return true;
@@ -61,9 +58,7 @@ export class UserService {
   }
 
   removeFavorite(movieId:number):Observable<boolean>{
-    let headers= new HttpHeaders();
-    headers.append('responseType','json');
-    return this.http.delete(`${environment.apiUrl}user/removeFavorite/${movieId}`,{headers:headers})
+    return this.http.delete(`${environment.apiUrl}user/removeFavorite/${movieId}`,{headers:this._headers})
     .pipe(map((response:any)=>{
       if(response){
         return true;
