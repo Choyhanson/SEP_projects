@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieCard } from 'src/app/shared/models/movieCard';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import{Movie} from 'src/app/shared/models/movie';
+import { Movie } from 'src/app/shared/models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,9 @@ export class MoviesService {
     // map in JS RXJS => Select
     // Where => filter
   }
-  getMovieDetails(id: number):Observable<Movie> {
+  getMovieDetails(id: number): Observable<Movie> {
     // call API methods
     return this.http.get<Movie>(`${environment.apiUrl}movies/${id}`);
   }
+
 }

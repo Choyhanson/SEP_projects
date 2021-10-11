@@ -49,13 +49,20 @@ namespace MovieShopAPI.Controllers
             return Ok(movie);
         }
 
-        [Route("genre/{genreId:int}",Name= "GetAllMoviesByGenre")]
+        [Route("genre/{genreId:int}/Page={page:int}",Name= "GetAllMoviesByGenre")]
         [HttpGet]
-        public async Task<IActionResult> GenreViews(int genreId, int Page=1, string Sort = "default")
+        public async Task<IActionResult> GenreViews(int genreId, int page=1, string sort = "default")
         {
-            var table = await _movieGenreService.GetAllMoviesByGenreAsync(genreId, Page, Sort);
+            var table = await _movieGenreService.GetAllMoviesByGenreAsync(genreId, page, sort);
 
             return Ok(table);
+        }
+        [Route("genres")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllGenres()
+        {
+            var genres = await _movieGenreService.GetAllGenresAsync();
+            return Ok(genres);
         }
     }
 }

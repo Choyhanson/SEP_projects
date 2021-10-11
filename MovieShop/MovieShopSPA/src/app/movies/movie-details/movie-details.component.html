@@ -1,6 +1,6 @@
 
-
-<div class="rounded" *ngFor="let item of movie.movies">
+ 
+<div class="rounded"  *ngFor="let item of movie.movies">
     <div class="container-fluid ">
         <div class="row"
             style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('{{item.backdropUrl}}');">
@@ -24,7 +24,7 @@
                 <div class="mb-lg-2">
                     <h4><span class="badge bg-success">{{movie.rating | number: '1.1-2'}}</span></h4>
                 </div>
-                <p>
+                <p class="text-justify">
                     {{item.overview}}
                 </p>
             </div>

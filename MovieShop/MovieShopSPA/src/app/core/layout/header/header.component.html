@@ -1,32 +1,62 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a434319710.js" crossorigin="anonymous"></script>
 
-
-<nav class="navbar navbar-expand-sm navbar-light bg-dark">
+<nav class="navbar navbar-expand-sm navbar-light bg-dark fixed-top ">
     <a class="navbar-brand text-white font-weight-bold ml-lg-2" href="#">MovieShop <i class="bi bi-film"></i></a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-lg-0 ml-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle bold text-white" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GENRES</a>
-                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                    <a class="dropdown-item" href="#">Action 1</a>
-                    <a class="dropdown-item" href="#">Action 2</a>
-                </div>
-            </li>
-        </ul>
+    <div class="col ml-lg-5">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-secondary" id="genreMenu" ngbDropdownToggle>GENRES</button>
+            <div ngbDropdownMenu aria-labelledby="genreMenu">
+                <button ngbDropdownItem *ngFor="let genre of genreMenu">
+                    <!-- <a ngbDropdownItem [routerLink]="['movies/genre/',genre.genreId]"> -->
+                    <a ngbDropdownItem routerLink="movies/genre/{{genre.genreId}}">
+                        {{genre.genreName}}
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="!isLogin">
         <div class="navbar-collapse collapse w-100">
             <ul class="navbar-nav ml-auto">
                 <li class="navbar-item pr-2">
-                    <a class="btn btn-dark border-white rounded-pill mr-1 " [routerLink]="['Account/login']"> Login </a>
+                    <a class="btn btn-dark border-white rounded-pill mr-1 " routerLink="account/login"> Login
+                    </a>
                 </li>
                 <li class="nav-item mr-3">
-                    <a class="btn btn-dark border-white rounded-pill mr-1" asp-controller="Account" asp-action="Register"> Register </a>
+                    <a class="btn btn-dark border-white rounded-pill mr-1" [routerLink]="['account/register']"> Register
+                    </a>
                 </li>
             </ul>
         </div>
-    </div>
+    </ng-container>
+
+    <ng-container *ngIf="isLogin">
+        <div class="navbar-collapse d-flex flex-row-reverse">
+            <ul class="navbar-nav mr-lg-5 ">
+                <li class="nav-item text-capitalize " ngbDropdown>
+                    <a class="nav-link dropdown-toggle text-light" id="dropdown" ngbDropdownToggle>
+                        {{user.given_name}} {{user.family_name}}
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="dropdown">
+                        <a class="px-2"ngbDropdownItem routerLink="user/purchases"> Purchased Movies <i class="bi bi-film"></i></a>
+                        <a class="px-2"ngbDropdownItem routerLink="user/favorites"> Favorite Movies <i class="bi bi-star-fill"></i></a>
+                        <a class="px-2"ngbDropdownItem> User Account <i class="bi bi-person-fill"></i></a>
+                        <a class="px-2"ngbDropdownItem routerLink="/" (click)="logout()"> Logout <i class="bi bi-box-arrow-right"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+
 </nav>
+
+<div class="container-fluid" style="margin-top:80px;">
+
+</div>

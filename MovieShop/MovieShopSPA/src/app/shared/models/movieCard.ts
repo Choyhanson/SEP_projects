@@ -1,12 +1,12 @@
 export interface MovieCard{
         movieId: number;
-        revenue: any;
-        genreId: number;
-        genreName?: any;
-        movieTitle: string;
         moviePosterUrl: string;
-        pages: number;
-        rating: number;
+        // revenue: any;
+        // genreId: number;
+        // genreName?: any;
+        // movieTitle: string;
+        // pages: number;
+        // // rating: number;
     }
 
 // vs code shortcut
