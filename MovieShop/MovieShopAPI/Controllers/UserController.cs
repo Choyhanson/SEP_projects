@@ -27,9 +27,9 @@ namespace MovieShopAPI.Controllers
             _movieFavoriteService = movieFavoriteService;
         }
 
+        [Authorize]
         [Route("purchases")]
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Purchases()
         {
             var userId = _currentUserService.UserId;
@@ -39,9 +39,9 @@ namespace MovieShopAPI.Controllers
             return Ok(purchases);
         }
 
+        [Authorize]
         [Route("AddPurchase")]
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> PurchaseAction(int movieId, decimal price)
         {
             var userId = _currentUserService.UserId;
@@ -49,9 +49,9 @@ namespace MovieShopAPI.Controllers
             return Ok("Purchased!");
         }
 
+        [Authorize]
         [Route("favorites")]
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Favorites()
         {
             var userId = _currentUserService.UserId;
@@ -60,9 +60,10 @@ namespace MovieShopAPI.Controllers
             // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
             return Ok(purchases);
         }
+
+        [Authorize]
         [Route("addfavorites")]
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddFavorite( int movieId)
         {
             var userId = _currentUserService.UserId;
@@ -72,9 +73,9 @@ namespace MovieShopAPI.Controllers
             return Ok(favorite);
         }
 
+        [Authorize]
         [Route("removefavorites")]
         [HttpDelete]
-        [Authorize]
         public async Task<IActionResult> RemoveFavorite( int movieId)
         {
             var userId = _currentUserService.UserId;
