@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Favorite } from 'src/app/shared/models/favorite';
 import { Purchase } from 'src/app/shared/models/purchase';
 import { environment } from 'src/environments/environment';
@@ -10,13 +11,64 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    
+  }
 
   getUserPurchases():Observable<Purchase[]>{
     return this.http.get<Purchase[]>(`${environment.apiUrl}User/purchases`);
   }
 
+  isPurchased(movieId:number):Observable<boolean>{
+    return this.http.get(`${environment.apiUrl}user/isPurchased/${movieId}`)
+    .pipe(map((response:any)=>{
+      if(response.status){
+        return true;
+      }
+      return false;
+    }));
+  }
+  addPurchase(movieId:number,price:number):Observable<boolean>{
+    let headers= new HttpHeaders();
+    headers.append('responseType','json');
+    return this.http.post(`${environment.apiUrl}user/addPurchase/${movieId}/${price}`,{headers:headers})
+    .pipe(map((response:any )=>{
+      if(response.res){
+        return true;
+      }
+      return false;
+    }));
+  }
+
   getUserFavorites():Observable<Favorite[]>{
     return this.http.get<Favorite[]>(`${environment.apiUrl}User/favorites`);
+  }
+
+  isFavorited(movieId:number):Observable<boolean>{
+    return this.http.get<boolean>(`${environment.apiUrl}user/isFavorited/${movieId}`);
+  }
+
+  addFavorite(movieId:number):Observable<boolean>{
+    let headers= new HttpHeaders();
+    headers.append('responseType','json');
+    return this.http.post(`${environment.apiUrl}user/addFavorite/${movieId}`,{headers:headers})
+    .pipe(map((response:any)=>{
+      if(response.favorite){
+        return true;
+      }
+      return false;
+    }));
+  }
+
+  removeFavorite(movieId:number):Observable<boolean>{
+    let headers= new HttpHeaders();
+    headers.append('responseType','json');
+    return this.http.delete(`${environment.apiUrl}user/removeFavorite/${movieId}`,{headers:headers})
+    .pipe(map((response:any)=>{
+      if(response){
+        return true;
+      }
+      return false;
+    }));
   }
 }

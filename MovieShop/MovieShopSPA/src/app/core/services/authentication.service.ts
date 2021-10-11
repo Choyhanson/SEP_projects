@@ -12,21 +12,28 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthenticationService {
 
-  private currentUserInfo=new BehaviorSubject<User>({} as User);
-  public currentUser=this.currentUserInfo.asObservable();
+  private currentUserSubject=new BehaviorSubject<User>({} as User);
+  public currentUser=this.currentUserSubject.asObservable();
 
-  private isLoginStatus=new BehaviorSubject<boolean>(false);
-  public isLogin=this.isLoginStatus.asObservable();
+  private isLoginSubject=new BehaviorSubject<boolean>(false);
+  public isLogin=this.isLoginSubject.asObservable();
 
   private jwtHelper = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
   login(user: Login): Observable<boolean> {
+    // take email/password from login component and post it to api/account/login URL
+    // if we get 200 OK status from API, email/password is correct, so we get token from API
+    // store the token in localstorage
+    // return true to component
+
     return this.http.post(`${environment.apiUrl}account/login`, user).pipe(map((response: any) => {
       if (response) {
         localStorage.setItem('token', response.token);
-        this.userInfo();
+        // create the observables so that other components can get notification when user successfully login
+        // any component can subscribe to this obserables to get the notification
+        this.populateUserInfo();
         return true;
       }
       return false;
@@ -34,19 +41,28 @@ export class AuthenticationService {
     ));
   }
 
-  userInfo() {
+  populateUserInfo() {
     var token = localStorage.getItem('token');
-    if (token ) {
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
       const decodeToken = this.jwtHelper.decodeToken(token);
-      this.currentUserInfo.next(decodeToken);
-      this.isLoginStatus.next(true);
+      this.currentUserSubject.next(decodeToken);
+      this.isLoginSubject.next(true);
     }
 
   }
 
   logout() {
+    // remove the token from local storage
+
     localStorage.removeItem('token');
-    this.currentUserInfo.next({} as User);
-    this.isLoginStatus.next(false);
+    this.currentUserSubject.next({} as User);
+    this.isLoginSubject.next(false);
+  }
+
+  register(){
+    // take the user registration info model ( firstName, lastName, dateOfBirth, email, password )
+    // post it to api/account
+    // if success, redirect to login route 
+
   }
 }

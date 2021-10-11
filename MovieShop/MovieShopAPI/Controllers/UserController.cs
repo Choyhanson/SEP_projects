@@ -40,13 +40,22 @@ namespace MovieShopAPI.Controllers
         }
 
         [Authorize]
-        [Route("AddPurchase")]
+        [Route("isPurchased/{movieId:int}"),HttpGet]
+        public async Task<IActionResult> IsMoviePurchased(int movieId)
+        {
+            var userId = _currentUserService.UserId;
+            var res = await _purchaseService.IsMoviePurchased(userId, movieId);
+            return Ok( new { status= res});
+        }
+
+        [Authorize]
+        [Route("AddPurchase/{movieId:int}/{price:decimal}")]
         [HttpPost]
         public async Task<IActionResult> PurchaseAction(int movieId, decimal price)
         {
             var userId = _currentUserService.UserId;
             var res = await _purchaseService.PurchaseMovie(userId, movieId, price);
-            return Ok("Purchased!");
+            return Ok(new { res = res});
         }
 
         [Authorize]
@@ -61,8 +70,19 @@ namespace MovieShopAPI.Controllers
             return Ok(purchases);
         }
 
+
         [Authorize]
-        [Route("addfavorites")]
+        [Route("isFavorited/{movieId:int}"),HttpGet]
+        public async Task<IActionResult> IsMovieFavorited(int movieId)
+        {
+            var userId = _currentUserService.UserId;
+            var res = await _movieFavoriteService.IsFavoritedMovie(userId,movieId);
+            return Ok(res);
+        }
+
+
+        [Authorize]
+        [Route("addfavorite/{movieId:int}")]
         [HttpPost]
         public async Task<IActionResult> AddFavorite( int movieId)
         {
@@ -74,7 +94,7 @@ namespace MovieShopAPI.Controllers
         }
 
         [Authorize]
-        [Route("removefavorites")]
+        [Route("removefavorite/{movieId:int}")]
         [HttpDelete]
         public async Task<IActionResult> RemoveFavorite( int movieId)
         {
@@ -82,7 +102,7 @@ namespace MovieShopAPI.Controllers
             await _movieFavoriteService.RemoveFavoriteMovie(userId, movieId);
 
             // call the User Service to get movies purchased by user, and send the data to the view, and use the existing MovieCard partial View
-            return Ok("Removed!");
+            return Ok(true);
         }
     }
 }

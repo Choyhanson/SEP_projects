@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit(form: NgForm) {
+    // capture the email/password from the view
     this.user.email = form.value.email;
     this.user.password = form.value.password;
     this.authService.login(this.user).subscribe(

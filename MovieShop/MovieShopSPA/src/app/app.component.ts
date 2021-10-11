@@ -11,6 +11,6 @@ export class AppComponent {
   constructor(private authService: AuthenticationService){}
 
   ngOnInit(): void{
-    this.authService.userInfo();
+    this.authService.populateUserInfo();
   }
 }

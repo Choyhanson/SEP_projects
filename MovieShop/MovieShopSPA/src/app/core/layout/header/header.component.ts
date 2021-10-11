@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
   user!:User;
   isLogin:boolean=false;
 
-  constructor(private genreService: GenreService,private authService:AuthenticationService, private router: Router) 
+  constructor(private genreService: GenreService,private authService:AuthenticationService,
+     private router: Router) 
   { 
     this.authService.currentUser.subscribe( m=>this.user=m );
     this.authService.isLogin.subscribe( m => this.isLogin=m);
@@ -35,6 +36,6 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigateByUrl('account/login');
   }
 }

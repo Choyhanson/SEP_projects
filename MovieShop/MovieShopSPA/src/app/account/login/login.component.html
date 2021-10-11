@@ -1,3 +1,11 @@
+<!-- Use Template-Driven Approach -->
+<!-- ngModel directive is the one we use that uses FormControl behind the scenes -->
+<!-- template-driven approach will required each of the html control to have name attribute -->
+<!-- ngforms use banana in the box syntax  -->
+<!-- Before using Template-driven or Reactive forms -->
+<!-- Two way binding Angular's two-way binding syntax is a combination of square brackets and parentheses, 
+    [()] -->
+
 <div class="mask d-flex align-items-center h-100 gradient-custom-3 bg-light">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -10,7 +18,8 @@
                             <div class="form-outline mb-3">
                                 <h5><label class="form-label mb-0" for="formEmail">Your Email</label></h5>
                                 <div class="input-group">
-                                    <input name="email" id="formEmail" class="pt-0 form-control form-control-lg" ngModel required #email="ngModel">
+                                    <input name="email" id="formEmail" class="pt-0 form-control form-control-lg" ngModel
+                                        required #email="ngModel">
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     </div>
@@ -19,15 +28,22 @@
                             <div class="form-outline mb-3">
                                 <h5><label class="form-label mb-0" for="formPswd">Password</label></h5>
                                 <div class="input-group">
-                                    <input name="password" id="formPswd" class="pt-0 form-control form-control-lg" ngModel required #password="ngModel">
-                                    <div class="input-group-append"><span asp-validation-for="Password"class="input-group-text"><i class="bi bi-shield-lock-fill"></i></span></div>
+                                    <input name="password" id="formPswd" class="pt-0 form-control form-control-lg"
+                                        ngModel required #password="ngModel">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-shield-lock-fill"></i></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-info btn-block btn-lg gradient-custom-4 text-body">Log In</button>
+                                <button type="submit"
+                                    class="btn btn-info btn-block btn-lg gradient-custom-4 text-body">Log In</button>
                             </div>
 
-                            <p class="text-center text-muted mt-2 mb-0">No account yet? Please Sign Up <a class="fw-bold text-body" href="/account/register"><u class="text-info">Register here</u></a></p>
+                            <p class="text-center text-muted mt-2 mb-0">No account yet? Please Sign Up <a
+                                    class="fw-bold text-body" href="/account/register"><u class="text-info">Register
+                                        here</u></a></p>
                         </form>
                     </div>
                 </div>
