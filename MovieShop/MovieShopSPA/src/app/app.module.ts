@@ -13,16 +13,17 @@ import { HeaderComponent } from './core/layout/header/header.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { FavoritesComponent } from './user/favorites/favorites.component';
-import { PurchasesComponent } from './user/purchases/purchases.component';
-import { EditprofileComponent } from './user/editprofile/editprofile.component';
+// import { FavoritesComponent } from './user/favorites/favorites.component';
+// import { PurchasesComponent } from './user/purchases/purchases.component';
+// import { EditprofileComponent } from './user/editprofile/editprofile.component';
 import { CreateMovieComponent } from './admin/create-movie/create-movie.component';
 import { TopratedComponent } from './movies/toprated/toprated.component';
 import { CreateCastComponent } from './admin/create-cast/create-cast.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
-import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
+// import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
 import { MovieGenreComponent } from './movies/movie-genre/movie-genre.component';
-import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/shared.module';
+
 
 
 export function tokenGetter(){
@@ -39,14 +40,14 @@ export function tokenGetter(){
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    FavoritesComponent,
-    PurchasesComponent,
-    EditprofileComponent,
+    // FavoritesComponent,
+    // PurchasesComponent,
+    // EditprofileComponent,
     CreateMovieComponent,
     TopratedComponent,
     CreateCastComponent,
     MovieDetailsComponent,
-    MovieCardComponent,
+    // MovieCardComponent,
     MovieGenreComponent,
   ],
   imports: [
@@ -63,7 +64,9 @@ export function tokenGetter(){
         allowedDomains:["localhost:44354"],
         disallowedRoutes:[]
       }
-    })
+    }),
+     SharedModule,
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
