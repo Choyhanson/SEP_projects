@@ -54,7 +54,9 @@
             </div>
         </div>
     </div>
-    <partial name="_LoginPartial" />
+    @*<partial name="_LoginPartial" />*@
+    @await Html.PartialAsync("_LoginPartial") ;
+
 </nav>
 
 
@@ -67,9 +69,11 @@
             @foreach (var movie in Model.Genres)
             {
                 ViewBag.GenreId = movie.GenreId;
-                <div class="col-xl-2 col-sm-4 col-lg-3">
-                    <partial name="_MovieCard" model="movie" />
-                </div>
+            <div class="col-xl-2 col-sm-4 col-lg-3">
+                @*<partial name="_MovieCard" model="movie" />*@
+                @await Html.PartialAsync("_MovieCard", movie) ;
+
+            </div>
             }
         </div>
     </div>
