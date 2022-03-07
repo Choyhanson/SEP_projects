@@ -35,6 +35,7 @@ namespace MovieShopAPI.Controllers
         [Route("Register")]
         public async Task<IActionResult> Register([FromBody] UserRegisterRequestModel model)
         {
+            // random comment meaningless
             var user = await _userService.RegisterUser(model);
             return Ok(user);
         }
