@@ -13,6 +13,9 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        /// <summary>
+        /// random description
+        /// </summary>
         private readonly IUserService _userService;
         private readonly ICurrentUserService _currentUserService;
         private readonly IPurchaseService _purchaseService;
