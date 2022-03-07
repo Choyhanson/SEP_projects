@@ -20,6 +20,9 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        /// <summary>
+        /// testing description
+        /// </summary>
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
         public AccountController(IUserService userService, IConfiguration configuration)
