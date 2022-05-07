@@ -5,7 +5,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieShopAPI.runtimeconfig.json
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieShopAPI.runtimeconfig.dev.json
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieShopAPI.dll
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\ref\MovieShopAPI.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieShopAPI.pdb
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -54,7 +53,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\staticwebassets\MovieShopAPI.StaticWebAssets.Manifest.cache
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\staticwebassets\MovieShopAPI.StaticWebAssets.xml
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\scopedcss\bundle\MovieShopAPI.styles.css
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.RazorTargetAssemblyInfo.cache
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.csproj.CopyComplete
@@ -64,3 +62,5 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\MovieShopAPI.genruntimeconfig.cache
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\libman.json
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\bin\Debug\net5.0\MovieShopAPI.StaticWebAssets.xml
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopAPI\obj\Debug\net5.0\refint\MovieShopAPI.dll

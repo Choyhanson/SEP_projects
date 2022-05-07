@@ -28,7 +28,7 @@ namespace MovieShopMVC.Controllers
         public async Task<IActionResult> Register(UserRegisterRequestModel model)
         {
             // save the info to database by calling user service register method
-            var user = await _userService.RegisterUser(model);
+            await _userService.RegisterUser(model);
 
             return RedirectToAction("Login");
         }
@@ -43,7 +43,7 @@ namespace MovieShopMVC.Controllers
         {
             var user =await _userService.ValidateUser(model.Email, model.Password);
 
-            // we need cookie based authetication
+            // we need cookie based authentication
             if (user==null)
             {
                 return RedirectToAction("Login");
@@ -57,7 +57,7 @@ namespace MovieShopMVC.Controllers
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.DateOfBirth, user.DateOfBirth.ToString())
             };
-            // identity object thats gonna use above claims
+            // identity object that's gonna use above claims
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, 
