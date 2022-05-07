@@ -28,7 +28,9 @@ using MovieShopMVC.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f712fe2e28f32642078b4d74ca8fa2a2cadb0ef9", @"/Views/Movies/GenreViews.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b6112aabca9b932007558671ce74e32c023ef6c3", @"/Views/_ViewImports.cshtml")]
+    #nullable restore
     public class Views_Movies_GenreViews : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ApplicationCore.Models.TableViewModel>
+    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("navbar-brand"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -98,7 +100,7 @@ using MovieShopMVC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<nav class=\"navbar navbar-expand-sm navbar-toggleable-sm  bg-dark navbar-dark border-bottom box-shadow mb-3 fixed-top \">\r\n    <div class=\"container-fluid\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef98246", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef98292", async() => {
                 WriteLiteral("\r\n            MovieShopMVC <i class=\"bi bi-film\"></i>\r\n        ");
             }
             );
@@ -140,7 +142,7 @@ using MovieShopMVC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef911099", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef911145", async() => {
 #nullable restore
 #line 46 "D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\Views\Movies\GenreViews.cshtml"
                                                                                                                              Write(item.GenreName);
@@ -188,7 +190,7 @@ using MovieShopMVC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                    </div>\r\n                </div>\r\n                <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef914189", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef914235", async() => {
                 WriteLiteral("Hot <i class=\"fas fa-fire text-danger\"></i>");
             }
             );
@@ -222,7 +224,7 @@ using MovieShopMVC.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</h4>\r\n                <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef916800", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef916846", async() => {
                 WriteLiteral("A-Z&uarr;");
             }
             );
@@ -262,7 +264,7 @@ using MovieShopMVC.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</h4>\r\n                <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef919889", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef919935", async() => {
                 WriteLiteral("Z-A&darr;");
             }
             );
@@ -302,7 +304,7 @@ using MovieShopMVC.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</h4>\r\n                <h4>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef922978", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef923024", async() => {
                 WriteLiteral("Rating");
             }
             );
@@ -418,7 +420,7 @@ WriteAttributeValue(" ", 4007, previousStatus, 4008, 15, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef929180", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef929226", async() => {
                 WriteLiteral("&laquo;");
             }
             );
@@ -463,7 +465,7 @@ WriteAttributeValue(" ", 4007, previousStatus, 4008, 15, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n        <li class=\"page-item \" aria-current=\"page\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef932559", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef932605", async() => {
                 WriteLiteral("FirstPage");
             }
             );
@@ -539,7 +541,7 @@ WriteAttributeValue(" ", 4007, previousStatus, 4008, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item\" aria-current=\"page\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef936786", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef936832", async() => {
 #nullable restore
 #line 111 "D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\Views\Movies\GenreViews.cshtml"
                                                                                                                                         Write(i);
@@ -607,7 +609,7 @@ WriteAttributeValue(" ", 4007, previousStatus, 4008, 15, false);
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"page-item \" aria-current=\"page\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef940919", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef940965", async() => {
                 WriteLiteral("LastPage");
             }
             );
@@ -663,7 +665,7 @@ WriteAttributeValue(" ", 5250, nextStatus, 5251, 11, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef944700", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f712fe2e28f32642078b4d74ca8fa2a2cadb0ef944746", async() => {
                 WriteLiteral("&raquo;");
             }
             );
@@ -710,16 +712,26 @@ WriteAttributeValue(" ", 5250, nextStatus, 5251, 11, false);
             WriteLiteral("\r\n        </li>\r\n    </ul>\r\n</nav>\r\n");
         }
         #pragma warning restore 1998
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ApplicationCore.Models.TableViewModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ApplicationCore.Models.TableViewModel> Html { get; private set; } = default!;
+        #nullable disable
     }
 }
 #pragma warning restore 1591

@@ -50,7 +50,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.runtimeconfig.json
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.runtimeconfig.dev.json
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.dll
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\ref\MovieShopMVC.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.pdb
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.Views.dll
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.Views.pdb
@@ -67,7 +66,6 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieSho
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.RazorAssemblyInfo.cache
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.RazorAssemblyInfo.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\staticwebassets\MovieShopMVC.StaticWebAssets.Manifest.cache
-D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\staticwebassets\MovieShopMVC.StaticWebAssets.xml
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\scopedcss\bundle\MovieShopMVC.styles.css
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.TagHelpers.input.cache
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\MovieShopMVC.TagHelpers.output.cache
@@ -209,3 +207,5 @@ D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Vi
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Favorites.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_MovieFavoriteCard.cshtml.g.cs
 D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\UserDetails.cshtml.g.cs
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\bin\Debug\net5.0\MovieShopMVC.StaticWebAssets.xml
+D:\Downloads\Antra\SEP_Projects\MovieShop\MovieShopMVC\obj\Debug\net5.0\refint\MovieShopMVC.dll
