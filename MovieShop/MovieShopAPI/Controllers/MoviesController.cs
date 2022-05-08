@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MovieShopAPI.Controllers
 {
-    // Attribute Routing
+    // Attribute Routing 1
     [Route("api/[controller]")]
     [ApiController]
     public class MoviesController : ControllerBase
