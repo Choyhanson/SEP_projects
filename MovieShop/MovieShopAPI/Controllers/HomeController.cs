@@ -16,7 +16,12 @@ namespace MovieShopAPI.Controllers
         {
             _movieService = movieService;
         }
-
+        /// <summary>
+        /// doing sth
+        /// </summary>
+        /// <param name="Page"></param>
+        /// <param name="Sort"></param>
+        /// <returns></returns>
         [Route("homepage")]
         [HttpGet]
         public async Task<IActionResult> Index(int Page=1,string Sort = "default") 
