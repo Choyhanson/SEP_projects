@@ -21,7 +21,7 @@ namespace MovieShopAPI.Controllers
     public class AccountController : ControllerBase
     {
         /// <summary>
-        /// testing description
+        /// testing description 2
         /// </summary>
         private readonly IUserService _userService;
         private readonly IConfiguration _configuration;
