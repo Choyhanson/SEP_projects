@@ -28,6 +28,7 @@ namespace MovieShopMVC.Controllers
         public async Task<IActionResult> Register(UserRegisterRequestModel model)
         {
             // save the info to database by calling user service register method
+            // randomly input sth for testing purpose
             // randomly add sth for testing purpose
             await _userService.RegisterUser(model);
 
