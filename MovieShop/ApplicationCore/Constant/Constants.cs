@@ -5,8 +5,8 @@ namespace ApplicationCore.Constant
     {
         public enum ScopesVersions : short
         {
-            V1,
-            V2,
+            V1 = 1,
+            V2 = 2,
         }
 
         public struct RatingLevel

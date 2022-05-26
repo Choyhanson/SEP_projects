@@ -29,7 +29,6 @@ namespace MovieShopMVC.Controllers
         {
             // save the info to database by calling user service register method
             // randomly input sth for testing purpose
-            // randomly add sth for testing purpose
             await _userService.RegisterUser(model);
 
             return RedirectToAction("Login");
