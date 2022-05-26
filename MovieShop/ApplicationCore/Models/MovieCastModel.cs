@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static ApplicationCore.Constant.Constants;
 
 namespace ApplicationCore.Models
 {
@@ -14,5 +10,6 @@ namespace ApplicationCore.Models
         public string ProfilePath { get; set; }
         public int MovieId { get; set; }
         public string Character { get; set; }
+        public ScopesVersions ScopesVersion { get; set; }
     }
 }
