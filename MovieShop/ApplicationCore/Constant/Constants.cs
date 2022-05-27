@@ -15,5 +15,12 @@ namespace ApplicationCore.Constant
             public const string High = "HigherThanAverage";
             public const string Average = "Average";
         }
+
+        public struct Genres
+        {
+            public const string Action = "Action";
+            public const string Kid = "Kids";
+            public const string TS = "TalkShow";
+        }
     }
 }
